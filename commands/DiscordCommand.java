@@ -3,29 +3,25 @@ package me.refrac.linkscore.commands;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
+import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import me.refrac.linkscore.Main;
+import me.refrac.linkscore.LinksCore;
 
-public class DiscordCommand implements org.bukkit.command.CommandExecutor {
-	
-	  public DiscordCommand() {
-	  }
-	  
-	String Prefix = ChatColor.translateAlternateColorCodes('&', Main.plugin.getConfig().getString("Prefix"));
-	  
-	@SuppressWarnings("unused")
+public class DiscordCommand implements CommandExecutor
+{
+	String prefix = ChatColor.translateAlternateColorCodes('&', LinksCore.plugin.getConfig().getString("Prefix"));
+
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args)
-	  {
-			if (!(sender instanceof Player)) {
-				
-				Bukkit.getServer().getLogger().warning(Main.plugin.getConfig().getString("NoConsole"));
-				
-				return true;
-			}
-		  Player p = (Player) sender;
-	      sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.plugin.getConfig().getString("DiscordMessage")));
-	      return true;
-}
+	{
+		if (!(sender instanceof Player))
+		{
+			Bukkit.getServer().getLogger().warning(LinksCore.plugin.getConfig().getString("NoConsole"));
+			return true;
+		}
+
+		sender.sendMessage(ChatColor.translateAlternateColorCodes('&', LinksCore.plugin.getConfig().getString("DiscordMessage")));
+		return true;
+	}
 }
