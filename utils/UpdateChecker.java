@@ -2,35 +2,38 @@ package me.refrac.linkscore.utils;
 
 import java.net.*;
 
-import me.refrac.linkscore.Main;
+import me.refrac.linkscore.LinksCore;
 
 import java.io.*; 
 
 public class UpdateChecker
 {
-
-    public Main plugin;
+    public LinksCore plugin;
     public String version;
     
-    public UpdateChecker(Main plugin) {
+    public UpdateChecker(LinksCore plugin)
+    {
         this.plugin = plugin;
         this.version = this.getLatestVersion();
     }
-    
-    @SuppressWarnings("unused")
-	public String getLatestVersion() {
-        try {
-            final int resource = 70888;
+
+	public String getLatestVersion()
+    {
+        try
+        {
             final HttpURLConnection con = (HttpURLConnection)new URL("https://api.spigotmc.org/legacy/update.php?resource=70888").openConnection();
             con.setDoOutput(true);
             con.setRequestMethod("POST");
             con.getOutputStream().write("key=98BE0FE67F88AB82B4C197FAF1DC3B69206EFDCC4D3B80FC83A00037510B99B4&resource=70888".getBytes("UTF-8"));
             final String version = new BufferedReader(new InputStreamReader(con.getInputStream())).readLine();
-            if (version.length() <= 7) {
+
+            if(version.length() <= 7)
+            {
                 return version;
             }
         }
-        catch (Exception ex) {
+        catch (Exception ex)
+        {
             System.out.println("---------------------------------");
             this.plugin.getLogger().info("Failed to check for a update!");
             System.out.println("---------------------------------");
@@ -38,11 +41,13 @@ public class UpdateChecker
         return null;
     }
     
-    public boolean isConnected() {
+    public boolean isConnected()
+    {
         return this.version != null;
     }
     
-    public boolean hasUpdate() {
+    public boolean hasUpdate()
+    {
         return !this.version.equals(this.plugin.getDescription().getVersion());
     }
 }
