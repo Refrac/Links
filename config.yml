@@ -1,0 +1,35 @@
+# LinksCore Version: 1.3
+  configVersion: 1.3
+# Discord: https://discord.gg/acpxjpF
+
+# Updater
+
+#Permission: links.update
+  Update:
+  Enabled: true
+#Enables if there is a message on-join when the plugin is outdated.
+ 
+# Command Messages
+
+  DiscordMessage: "&d&lJoin our Discord:&r&d https://discord.gg/yourserver"
+  WebsiteMessage: "&d&lHeres our community Forums:&r&d https://yourserver.com/"
+  StoreMessage: "&d&lHeres our store:&r&d https://store.yourserver.com/"
+  NoConsole: "You can only use this command as a player!"  
+  
+# Join Message
+
+# Add more with this: - ""
+  message:
+  - "&d*&5*&d*&5*&d*&5*&d*&5*&d*&5*&d*&5*&d*&5*&d*&5*&d*&5*&d*&5*&d*&5"
+  - "&7Welcome to &d&lYour&5&lServer&7!"
+  - "&7Enjoy &bGameName!"
+  - "&7Use /help to get started!"
+  - "&d*&5*&d*&5*&d*&5*&d*&5*&d*&5*&d*&5*&d*&5*&d*&5&d*&5*&d*&5*&d*&5"
+  
+# Staff Chat
+
+  Prefix: "&8[&4SC&8] "
+  Enabled: "&7StaffChat Mode: &a&lON"
+  Disabled: "&7StaffChat Mode: &c&lOFF"
+  NoPerm: "&8(&c!&8) &cYou don't have permission to use this command!"
+  Usage: "&d&l&oYourServer &7Usage: /staffchat or /sc"
