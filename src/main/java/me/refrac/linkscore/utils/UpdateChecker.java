@@ -2,7 +2,7 @@ package me.refrac.linkscore.utils;
 
 import java.net.*;
 
-import me.refrac.linkscore.LinksCore;
+import me.refrac.linkscore.Core;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
@@ -10,10 +10,10 @@ import java.nio.charset.StandardCharsets;
 public class UpdateChecker
 {
 
-    public LinksCore plugin;
+    public Core plugin;
     private String version;
 
-    public UpdateChecker(LinksCore plugin) {
+    public UpdateChecker(Core plugin) {
         this.plugin = plugin;
         this.version = this.getLatestVersion();
     }

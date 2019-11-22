@@ -8,6 +8,15 @@ permissions:
   links.update:
     description: This is the UpdateNotification when a player joins and the plugin is out of date
     default: op
+  links.help:
+    description: This is the Help page
+    default: op
+  links.about:
+    description: This is the About page
+    default: op
   links.reload:
     description: This allows the user to reload the config file without having to restart or reload the entire server
+    default: op
+  vanish.use:
+    description: Allows the user to use /vanish
     default: op

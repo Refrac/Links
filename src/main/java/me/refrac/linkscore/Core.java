@@ -7,9 +7,9 @@ import me.refrac.linkscore.commands.*;
 import me.refrac.linkscore.events.*;
 import me.refrac.linkscore.utils.*;
 
-public class LinksCore extends JavaPlugin
+public class Core extends JavaPlugin
 {
-    public static LinksCore plugin;
+    public static Core plugin;
 
     @Override
     public void onEnable()
@@ -18,11 +18,14 @@ public class LinksCore extends JavaPlugin
         UpdateChecker checker;
 
         Logger.log(Logger.LogLevel.OUTLINE,  "********************");
+
         Logger.log(Logger.LogLevel.INFO, "Initializing LinksCore Version: " + Settings.VERSION);
         Logger.log(Logger.LogLevel.INFO, "Created by: " + Settings.DEVELOPER_NAME);
         Logger.log(Logger.LogLevel.INFO, "Plugin URL: " + Settings.PLUGIN_URL);
         Logger.log(Logger.LogLevel.INFO, "Support URL: " + Settings.SUPPORT_URL);
+
         Logger.log(Logger.LogLevel.OUTLINE,  "********************");
+
         plugin = this;
 
         Logger.log(Logger.LogLevel.INFO, "Plugin Loading...");
@@ -38,10 +41,12 @@ public class LinksCore extends JavaPlugin
         saveDefaultConfig();
         Logger.log(Logger.LogLevel.INFO, "Config's Registered!");
 
-        Logger.log(Logger.LogLevel.SUCCESS, "LinksCore Version: " + Settings.VERSION + " Loaded.");
+        Logger.log(Logger.LogLevel.SUCCESS, "Core Version: " + Settings.VERSION + " Loaded.");
+
         Logger.log(Logger.LogLevel.OUTLINE,  "********************");
+
         Logger.log(Logger.LogLevel.INFO, "LinksCore Version: " + Settings.VERSION + " checking for updates...");
-        checker = new UpdateChecker(LinksCore.plugin);
+        checker = new UpdateChecker( Core.plugin);
         if (checker.isConnected())
         {
             if (checker.hasUpdate())
@@ -60,21 +65,23 @@ public class LinksCore extends JavaPlugin
     {
         // Plugin shutdown logic
         plugin = null;
+        saveConfig ();
     }
 
     private void regCmds() {
-        getCommand("links").setExecutor(new LinksCommand());
-        getCommand("linksreload").setExecutor (new LinksReloadCommand());
-        getCommand("discord").setExecutor(new DiscordCommand());
-        getCommand("website").setExecutor(new WebsiteCommand());
-        getCommand("store").setExecutor(new StoreCommand());
-        getCommand("teamspeak").setExecutor(new TSCommand());
-        getCommand("staffchat").setExecutor(new StaffChatCommand());
+        getCommand("links").setExecutor(new Links ());
+        getCommand("linksreload").setExecutor (new LinksReload ());
+        getCommand("discord").setExecutor(new Discord ());
+        getCommand("website").setExecutor(new Website ());
+        getCommand("store").setExecutor(new Store ());
+        getCommand("teamspeak").setExecutor(new Teamspeak ());
+        getCommand("staffchat").setExecutor(new StaffChat ());
+        getCommand("vanish").setExecutor(new Vanish ());
     }
 
     private void regEvents() {
         final PluginManager pm = getServer ().getPluginManager ();
-        pm.registerEvents ( new JoinEvent () , this );
+        pm.registerEvents ( new Join () , this );
         pm.registerEvents ( new Chat () , this );
     }
     }

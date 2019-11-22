@@ -1,46 +1,58 @@
-# LinksCore Version: 1.6
+# Core Version: 1.6
 configVersion: 1.6
-# PLEASE DO NOT CHANGE THIS
-# Discord: https://discord.io/RefracDev
+# DO NOT CHANGE THIS
+# Support Discord: https://discord.io/RefracDev
 
 # Updater
 # Permission: links.update
 
 # Change to false if you don't want to see if there's an update on-join
 Update:
-  Enabled: true
+  enabled: true
 # Enables if there is a message on-join when the plugin is outdated.
 
 # Messages
 
-Prefix: "&e&l&oYour&f&l&oServer"
-# The Prefix will be displayed before all of these except NoConsole & Reload
-Discord: "{prefix} &e&lDiscord: &fhttps://discord.gg/yourserver"
-TS: "{prefix} &e&lTeamSpeak: &fts.yourserver.net"
-Website: "{prefix} &e&lWebsite: &fhttps://yourserver.net/"
-Store: "{prefix} &e&lStore: &fhttps://store.yourserver.net/"
-Reload: "&aConfig reloaded. Changes should be live in game."
+Messages:
+  prefix: "&e&l&oYour&f&l&oServer "
+  discord: "&e&lDiscord: &fhttps://discord.gg/yourserver"
+  teamspeak: "&e&lTeamSpeak: &fts.yourserver.net"
+  website: "&e&lWebsite: &fhttps://yourserver.net"
+  store: "&e&lStore: &fhttps://store.yourserver.net"
+  noPerm: "&cSorry you don't have permission!"
+  reload: "&aConfig reloaded. Changes should be live in game."
+  joinMessage: "&e{player}&7 has joined back."
+  # This is for when a brand new player joins you're server for the first time
+  newJoinMessage: "&7Welcome&r {player}&7 to &e&lYour&f&lServer&7!"
+  quitMessage: "&e{player}&7 has left."
 
 # Staff Chat
 # Permissions: staffchat.use(allows the player to execute /staffchat) staffchat.see(allows the player to see the staff chat messages)
 
-PrefixSC: "&8(&4StaffChat&8)&e&l"
-Suffix: " &8» &f&l"
-# {prefixsc}
-Enabled: "{prefixsc} &7Toggle enabled"
-Disabled: "{prefixsc} &7Toggle disabled"
-NoPerm: "&cSorry you don't have permission!"
+StaffChat:
+  prefixSC: "&8(&4StaffChat&8)&e&l"
+  suffix: " &8» &f&l"
+  # {prefixsc} - This is a placeholder that will place the Staff Chat Prefix
+  enabled: "{prefixsc} &7Toggle enabled"
+  disabled: "{prefixsc} &7Toggle enabled"
+
+# Vanish Messages
+
+Vanish:
+  # {prefix} is a useable placeholder for enabled and disabled messages
+  enabled: "&7Vanish enabled"
+  disabled: "&7Vanish enabled"
 
 # Join Messages
 # Add more with this: - ""
 
 message:
-    - "&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*"
-    - " "
-    - "                &eWelcome to &e&lYour&f&lServer&e!"
-    - " "
-    - "         &e&lDiscord - &fhttps://discord.gg/yourservercode"
-    - "         &e&lStore - &fhttps://store.yourserver.net"
-    - "         &e&lWeb - &fhttps://yourserver.net"
-    - " "
-    - "&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*"
+  - "&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*"
+  - " "
+  - "                  &eWelcome to &e&lYour&f&lServer&e!"
+  - " "
+  - "         &e&lDiscord &7- &fhttps://discord.gg/yourservercode"
+  - "         &e&lStore &7- &fhttps://store.yourserver.net"
+  - "         &e&lWeb &7- &fhttps://yourserver.net"
+  - " "
+  - "&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*"
