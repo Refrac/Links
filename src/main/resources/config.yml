@@ -1,58 +1,41 @@
-# Core Version: 1.6
-configVersion: 1.6
-# DO NOT CHANGE THIS
+# LinksCore Version: 1.7
 # Support Discord: https://discord.io/RefracDev
 
-# Updater
-# Permission: links.update
-
-# Change to false if you don't want to see if there's an update on-join
-Update:
+# This is a debug option for the developers to use to help fix an issue easier
+Debug:
+  # Do you want it enabled or not?
   enabled: true
-# Enables if there is a message on-join when the plugin is outdated.
 
 # Messages
-
 Messages:
-  prefix: "&e&l&oYour&f&l&oServer "
-  discord: "&e&lDiscord: &fhttps://discord.gg/yourserver"
-  teamspeak: "&e&lTeamSpeak: &fts.yourserver.net"
-  website: "&e&lWebsite: &fhttps://yourserver.net"
-  store: "&e&lStore: &fhttps://store.yourserver.net"
-  noPerm: "&cSorry you don't have permission!"
-  reload: "&aConfig reloaded. Changes should be live in game."
-  joinMessage: "&e{player}&7 has joined back."
-  # This is for when a brand new player joins you're server for the first time
-  newJoinMessage: "&7Welcome&r {player}&7 to &e&lYour&f&lServer&7!"
-  quitMessage: "&e{player}&7 has left."
+  enabled: true
+  join_motd:
+    - "&7&m----------------------------------------------------"
+    - ""
+    - "  &eWelcome &d{player}&e, to &dSERVER&e!"
+    - ""
+    - "&e&l⦁ Discord: &dhttps://discord.gg/yourserver"
+    - "&e&l⦁ Teamspeak: &dts.yourserver.net"
+    - "&e&l⦁ Website: &dhttps://yourserver.net"
+    - "&e&l⦁ Store: &dhttps://store.yourserver.net"
+    - ""
+    - "&7&m----------------------------------------------------"
+  # What should the messages be?
+  first_join_message: "&eWelcome &d{player} &eto &dSERVER&e!"
+  join_message: "&d{player} &ehas joined."
+  silent_join_message: "&eWelcome back, &d{player}&e."
+  quit_message: "&c{player} &ehas left."
+  silent_quit_message: "&eGoodbye, &d{player}&e."
+  noPermission: "&cSorry you don't have permission!"
 
-# Staff Chat
-# Permissions: staffchat.use(allows the player to execute /staffchat) staffchat.see(allows the player to see the staff chat messages)
-
-StaffChat:
-  prefixSC: "&8(&4StaffChat&8)&e&l"
-  suffix: " &8» &f&l"
-  # {prefixsc} - This is a placeholder that will place the Staff Chat Prefix
-  enabled: "{prefixsc} &7Toggle enabled"
-  disabled: "{prefixsc} &7Toggle enabled"
-
-# Vanish Messages
-
-Vanish:
-  # {prefix} is a useable placeholder for enabled and disabled messages
-  enabled: "&7Vanish enabled"
-  disabled: "&7Vanish enabled"
-
-# Join Messages
+# Links
 # Add more with this: - ""
-
-message:
-  - "&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*"
-  - " "
-  - "                  &eWelcome to &e&lYour&f&lServer&e!"
-  - " "
-  - "         &e&lDiscord &7- &fhttps://discord.gg/yourservercode"
-  - "         &e&lStore &7- &fhttps://store.yourserver.net"
-  - "         &e&lWeb &7- &fhttps://yourserver.net"
-  - " "
-  - "&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*&e*&f*"
+Links:
+  - "&7&m----------------------------------------------------"
+  - ""
+  - "&e&l⦁ Discord: &dhttps://discord.gg/yourserver"
+  - "&e&l⦁ TeamSpeak: &dts.yourserver.net"
+  - "&e&l⦁ Website: &dhttps://yourserver.net"
+  - "&e&l⦁ Store: &dhttps://store.yourserver.net"
+  - ""
+  - "&7&m----------------------------------------------------"

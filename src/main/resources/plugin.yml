@@ -1,28 +1,10 @@
 name: LinksCore
-# Change ${project.version} to 1.6 if not using maven
-version: ${project.version}
-main: me.refrac.linkscore.Core
-authors: [Refrac, RefracDev]
-# Change ${project.description} to Core Server Links and More! if not using maven
-description: ${project.description}
+version: '1.7'
+main: me.refrac.linkscore.Links
+author: Refrac
+description: LinksCore Server Links and More!
+url: https://discord.io/RefracDev
+
 commands:
   links:
-    description: Main command
-  linksreload:
-    description: Reload command
-  discord:
-    description: Shows the server Discord
-  store:
-    description: Shows the server Store
-  website:
-    description: Shows the server Website
-    aliases: [site, forum, forums]
-  staffchat:
-    description: Allows you to chat with your fellow staff members
-    aliases: [sc, sctoggle]
-  teamspeak:
-    description: Shows the server Teamspeak
-    aliases: [ts]
-  vanish:
-    description: Allows you to go invisible to all other players
-    aliases: [v]
+    description: Links command
