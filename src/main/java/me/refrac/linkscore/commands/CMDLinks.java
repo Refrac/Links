@@ -20,25 +20,30 @@ public class CMDLinks implements CommandExecutor {
         if (args.length == 0) {
             for (String links : Links.plugin.getConfig().getStringList("Links")) {
                 links = Utils.setupPlaceholderAPI(player, links);
+                links = links.replace("{player}", player.getName());
+                links = links.replace("{displayname}", player.getDisplayName());
                 player.sendMessage(Utils.color(links));
             }
         } else if (args.length == 1) {
             if (!player.hasPermission ( "links.help" )) {
-                player.sendMessage(Utils.color( Links.plugin.getConfig().getString("Messages.noPermission")));
+                player.sendMessage(Utils.color(Links.plugin.getConfig().getString("Messages.no_permission")));
                 return false;
             }
             player.sendMessage(Utils.color("&7&m-------------------------------------------"));
             player.sendMessage("");
-            player.sendMessage(ChatColor.AQUA + "/links " + ChatColor.WHITE + "Shows all of the server links");
-            player.sendMessage(ChatColor.AQUA + "/links help " + ChatColor.WHITE + "this help page");
-            player.sendMessage(ChatColor.AQUA + "/links about " + ChatColor.WHITE + "Shows plugin info");
-            player.sendMessage(ChatColor.AQUA + "/links reload " + ChatColor.WHITE + "Reloads the config");
+            player.sendMessage(Utils.color("&b&lLinksCore &bv" + Utils.VERSION));
+            player.sendMessage(Utils.color("&eby &b" + Utils.DEVELOPER_NAME));
+            player.sendMessage("");
+            player.sendMessage(ChatColor.AQUA + "/links " + ChatColor.YELLOW + "Shows all of the server links");
+            player.sendMessage(ChatColor.AQUA + "/links help " + ChatColor.YELLOW + "this help page");
+            player.sendMessage(ChatColor.AQUA + "/links about " + ChatColor.YELLOW + "Shows plugin info");
+            player.sendMessage(ChatColor.AQUA + "/links reload " + ChatColor.YELLOW + "Reloads the config");
             player.sendMessage("");
             player.sendMessage(Utils.color("&7&m-------------------------------------------"));
             return true;
         } else if (args[0].equalsIgnoreCase("about")) {
             if (!player.hasPermission("links.about")) {
-                player.sendMessage(Utils.color( Links.plugin.getConfig().getString("Messages.noPermission")));
+                player.sendMessage(Utils.color(Links.plugin.getConfig().getString("Messages.no_permission")));
                 return false;
             }
             player.sendMessage(Utils.color("&7&l&m-------------------------------------------"));
@@ -51,7 +56,7 @@ public class CMDLinks implements CommandExecutor {
             return true;
         } else if (args[0].equalsIgnoreCase("reload")) {
             if (!player.hasPermission("links.reload")) {
-                player.sendMessage(Utils.color( Links.plugin.getConfig().getString("Messages.noPermission")));
+                player.sendMessage(Utils.color(Links.plugin.getConfig().getString("Messages.no_permission")));
                 return false;
             }
             Links.plugin.reloadConfig();

@@ -21,6 +21,8 @@ public class JoinQuitEvent implements Listener {
 
             for (String message : Links.plugin.getConfig().getStringList("Messages.join_motd")) {
                 message = Utils.setupPlaceholderAPI(player, message);
+                message = message.replace("{player}", player.getName());
+                message = message.replace("{displayname}", player.getDisplayName());
                 player.sendMessage(Utils.color(message));
             }
 

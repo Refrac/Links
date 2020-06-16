@@ -26,7 +26,7 @@ Messages:
   silent_join_message: "&eWelcome back, &d{player}&e."
   quit_message: "&c{player} &ehas left."
   silent_quit_message: "&eGoodbye, &d{player}&e."
-  noPermission: "&cSorry you don't have permission!"
+  no_permission: "&cSorry you don't have permission!"
 
 # Links
 # Add more with this: - ""
