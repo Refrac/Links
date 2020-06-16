@@ -6,7 +6,7 @@
 
     <groupId>me.refrac.linkscore</groupId>
     <artifactId>LinksCore</artifactId>
-    <version>1.6</version>
+    <version>1.7</version>
     <packaging>jar</packaging>
 
     <name>LinksCore</name>
