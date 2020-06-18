@@ -1,8 +1,8 @@
 /*
- * Copyright (c) BGHDDevelopment.
- * Please refer to the plugin page or GitHub page for our open-source license.
- * If you have any questions please email ceo@bghddevelopment or reach us on Discord
+ * Copyright (c) Refrac
+ * If you have any questions please email refracplaysmc@gmail.com or reach me on Discord
  */
+
 package me.refrac.linkscore.utils;
 
 import me.clip.placeholderapi.PlaceholderAPI;
@@ -35,7 +35,11 @@ public class Utils {
     }
 
     public static String DEVELOPER_NAME = "Refrac";
-    public static String VERSION = "1.7";
+
     public static String SUPPORT_URL = "https://discord.io/RefracDev";
+
+    public static String VERSION = "1.7";
+
+    public static String PREFIX = "&8[&bLinks&8] ";
 
 }
