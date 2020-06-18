@@ -27,11 +27,11 @@ public class Links extends JavaPlugin {
         Logger.INFO.out("Enabling LinksCore");
 
         Logger.INFO.out("Loading config files");
-        createConfig();
+        this.createConfig();
         Logger.SUCCESS.out("Successfully loaded the config files");
 
         Logger.INFO.out("Loading commands");
-        getCommand("links").setExecutor(new CMDLinks());
+        this.getCommand("links").setExecutor(new CMDLinks());
         Logger.SUCCESS.out("Successfully loaded the commands");
 
         Logger.INFO.out("Loading events");

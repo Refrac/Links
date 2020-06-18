@@ -12,7 +12,7 @@ Messages:
   join_motd:
     - "&7&m----------------------------------------------------"
     - ""
-    - "  &eWelcome &d{player}&e, to &dSERVER&e!"
+    - "  &eWelcome &d{player}&7, to &dSERVER&e!"
     - ""
     - "&e&l» Discord: &dhttps://discord.gg/yourserver"
     - "&e&l» Teamspeak: &dts.yourserver.net"
@@ -21,7 +21,7 @@ Messages:
     - ""
     - "&7&m----------------------------------------------------"
   # What should the messages be?
-  first_join_message: "&eWelcome &d{player} &eto &dSERVER&e!"
+  first_join_message: "&eWelcome &d{player}, &eto &dSERVER&e!"
   join_message: "&d{player} &ehas joined."
   silent_join_message: "&eWelcome back, &d{player}&e."
   quit_message: "&c{player} &ehas left."

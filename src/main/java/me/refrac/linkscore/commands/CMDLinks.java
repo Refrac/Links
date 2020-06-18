@@ -29,17 +29,7 @@ public class CMDLinks implements CommandExecutor {
                 player.sendMessage(Utils.color(Links.plugin.getConfig().getString("Messages.no_permission")));
                 return false;
             }
-            player.sendMessage(Utils.color("&7&m-------------------------------------------"));
-            player.sendMessage("");
-            player.sendMessage(Utils.color("&b&lLinksCore &bv" + Utils.VERSION));
-            player.sendMessage(Utils.color("&eby &b" + Utils.DEVELOPER_NAME));
-            player.sendMessage("");
-            player.sendMessage(ChatColor.AQUA + "/links " + ChatColor.YELLOW + "Shows all of the server links");
-            player.sendMessage(ChatColor.AQUA + "/links help " + ChatColor.YELLOW + "this help page");
-            player.sendMessage(ChatColor.AQUA + "/links about " + ChatColor.YELLOW + "Shows plugin info");
-            player.sendMessage(ChatColor.AQUA + "/links reload " + ChatColor.YELLOW + "Reloads the config");
-            player.sendMessage("");
-            player.sendMessage(Utils.color("&7&m-------------------------------------------"));
+            this.sendHelpMessage(player);
             return true;
         } else if (args[0].equalsIgnoreCase("about")) {
             if (!player.hasPermission("links.about")) {
@@ -64,5 +54,19 @@ public class CMDLinks implements CommandExecutor {
             return true;
         }
         return false;
+    }
+
+    public void sendHelpMessage(Player player) {
+        player.sendMessage(Utils.color("&7&m-------------------------------------------"));
+        player.sendMessage("");
+        player.sendMessage(Utils.color("&b&lLinksCore &bv" + Utils.VERSION));
+        player.sendMessage(Utils.color("&eby &b" + Utils.DEVELOPER_NAME));
+        player.sendMessage("");
+        player.sendMessage(ChatColor.AQUA + "/links " + ChatColor.YELLOW + "Shows all of the server links");
+        player.sendMessage(ChatColor.AQUA + "/links help " + ChatColor.YELLOW + "This help page");
+        player.sendMessage(ChatColor.AQUA + "/links about " + ChatColor.YELLOW + "Shows plugin info");
+        player.sendMessage(ChatColor.AQUA + "/links reload " + ChatColor.YELLOW + "Reloads the config files");
+        player.sendMessage("");
+        player.sendMessage(Utils.color("&7&m-------------------------------------------"));
     }
 }

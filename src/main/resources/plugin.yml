@@ -2,7 +2,7 @@ name: LinksCore
 version: '1.7'
 main: me.refrac.linkscore.Links
 author: Refrac
-description: LinksCore Server Links and More!
+description: LinksCore utility plugin
 url: https://discord.io/RefracDev
 
 commands:
