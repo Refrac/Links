@@ -6,13 +6,13 @@
 
     <groupId>me.refrac.linkscore</groupId>
     <artifactId>LinksCore</artifactId>
-    <version>1.7</version>
+    <version>1.9</version>
     <packaging>jar</packaging>
 
     <name>LinksCore</name>
 
     <url>https://discord.io/RefracDev</url>
-    <description>LinksCore Server Links and More!</description>
+    <description>LinksCore utility plugin</description>
     <properties>
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

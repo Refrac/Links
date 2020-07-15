@@ -1,5 +1,10 @@
-# LinksCore Version: 1.7
+# LinksCore Version: 1.9
 # Support Discord: https://discord.io/RefracDev
+# Placeholders
+# {player} - Get the players name
+# {displayname} - Get the players nickname
+# {arrowright} - Unicode arrow
+# {circle} - Unicode circle/bullet
 
 # This is a debug option for the developers to use to help fix an issue easier
 Debug:
@@ -12,12 +17,12 @@ Messages:
   join_motd:
     - "&7&m----------------------------------------------------"
     - ""
-    - "  &eWelcome &d{player}&7, to &dSERVER&e!"
+    - "     &eWelcome &d{player}&7, &eto &cSERVER&e!"
     - ""
-    - "&e&l» Discord: &dhttps://discord.gg/yourserver"
-    - "&e&l» Teamspeak: &dts.yourserver.net"
-    - "&e&l» Website: &dhttps://yourserver.net"
-    - "&e&l» Store: &dhttps://store.yourserver.net"
+    - " &e{circle} Website: &dhttps://yourserver.net"
+    - " &e{circle} Discord: &dhttps://discord.gg/yourserver"
+    - " &e{circle} Store: &dhttps://store.yourserver.net"
+    - " &e{circle} Twitter: &dhttps://twitter.com/yourserver"
     - ""
     - "&7&m----------------------------------------------------"
   # What should the messages be?
@@ -33,9 +38,9 @@ Messages:
 Links:
   - "&7&m----------------------------------------------------"
   - ""
-  - "&e&l» Discord: &dhttps://discord.gg/yourserver"
-  - "&e&l» TeamSpeak: &dts.yourserver.net"
-  - "&e&l» Website: &dhttps://yourserver.net"
-  - "&e&l» Store: &dhttps://store.yourserver.net"
+  - "&e{circle} Website: &dhttps://yourserver.net"
+  - "&e{circle} Discord: &dhttps://discord.gg/yourserver"
+  - "&e{circle} Store: &dhttps://store.yourserver.net"
+  - "&e{circle} Twitter: &dhttps://twitter.com/yourserver"
   - ""
   - "&7&m----------------------------------------------------"

@@ -10,7 +10,7 @@ import org.bukkit.Bukkit;
 // Created by Refrac/Zachstyles 5/10/20
 public enum Logger {
 
-    NONE('r'), SUCCESS('a'), ERROR('c'), WARNING('e'), INFO('b'), OUTLINE('m'), ITALIC('o'), BOLD('l'), UNDERLINE('n');
+    NONE('r'), SUCCESS('a'), ERROR('c'), WARNING('e'), INFO('b');
 
     char color;
 

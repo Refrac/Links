@@ -15,14 +15,6 @@ public class Utils {
 
     public static boolean isPlaceholderAPIEnabled() { return (placeholderApi != null); }
 
-    public static String setupPlaceholderAPI(Player player , String message) {
-        String placeholders = message;
-        if (isPlaceholderAPIEnabled() && PlaceholderAPI.containsPlaceholders(placeholders)) {
-            placeholders = PlaceholderAPI.setPlaceholders(player, placeholders);
-        }
-        return placeholders;
-    }
-
     public static String color(String message) {
         return ChatColor.translateAlternateColorCodes('&', message);
     }
@@ -34,12 +26,12 @@ public class Utils {
         return ChatColor.translateAlternateColorCodes('&', message);
     }
 
-    public static String DEVELOPER_NAME = "Refrac";
+    public static String getAuthor = "Refrac";
 
-    public static String SUPPORT_URL = "https://discord.io/RefracDev";
+    public static String getSupport = "https://discord.io/RefracDev";
 
-    public static String VERSION = "1.7";
+    public static String getVersion = "1.9";
 
-    public static String PREFIX = "&8[&bLinks&8] ";
+    public static String getPrefix = "&8[&bLinks&8] ";
 
 }

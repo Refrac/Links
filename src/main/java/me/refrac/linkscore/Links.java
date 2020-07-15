@@ -2,6 +2,7 @@ package me.refrac.linkscore;
 
 import me.refrac.linkscore.events.JoinQuitEvent;
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -26,20 +27,28 @@ public class Links extends JavaPlugin {
         long startTiming = System.currentTimeMillis();
         Logger.INFO.out("Enabling LinksCore");
 
+        Logger.NONE.out("");
+        Logger.NONE.out(ChatColor.LIGHT_PURPLE + " _      ___  _   _    _  __   ____     ____    ___     ____     _____  ");
+        Logger.NONE.out(ChatColor.LIGHT_PURPLE + "| |    |_ _||    | | | |/ /  / ___|   / ___|  / _     |  _     | ____| ");
+        Logger.NONE.out(ChatColor.LIGHT_PURPLE + "| |     | | |    | | | ' /    ___     | |     | | | | | |_) |  |  _|   ");
+        Logger.NONE.out(ChatColor.LIGHT_PURPLE + "| |___  | | | |    | | .      ___) |  | |___  | |_| | |  _ <|  | |___  " + ChatColor.YELLOW + "By " + Utils.getAuthor);
+        Logger.NONE.out(ChatColor.LIGHT_PURPLE + "|_____||___||_|  |_| |_| |_| |____/     ____|   ___/  |_| |_|  |_____| " + ChatColor.YELLOW + "v" + Utils.getVersion);
+        Logger.NONE.out("");
+
         Logger.INFO.out("Loading config files");
         this.createConfig();
         Logger.SUCCESS.out("Successfully loaded the config files");
-
-        Logger.INFO.out("Loading commands");
-        this.getCommand("links").setExecutor(new CMDLinks());
-        Logger.SUCCESS.out("Successfully loaded the commands");
 
         Logger.INFO.out("Loading events");
         Bukkit.getServer().getPluginManager().registerEvents(new JoinQuitEvent(), this);
         Logger.SUCCESS.out("Successfully loaded the events");
 
+        Logger.INFO.out("Loading commands");
+        this.getCommand("links").setExecutor(new CMDLinks());
+        Logger.SUCCESS.out("Successfully loaded the commands");
+
         Logger.SUCCESS.out("LinksCore successfully enabled. (" + (System.currentTimeMillis() - startTiming) + "ms)");
-        Logger.INFO.out("Report any issues or errors directly to the developers @ " + Utils.SUPPORT_URL);
+        Logger.INFO.out("Report any issues or errors directly to the developers @ " + Utils.getSupport);
     }
 
     @Override
@@ -48,7 +57,7 @@ public class Links extends JavaPlugin {
         plugin = null;
         Logger.INFO.out("Shutting down LinksCore");
         Logger.SUCCESS.out("LinksCore successfully disabled.");
-        Logger.INFO.out("Report any issues or errors directly to the developers @ " + Utils.SUPPORT_URL);
+        Logger.INFO.out("Report any issues or errors directly to the developers @ " + Utils.getSupport);
     }
 
     public FileConfiguration getConfig() {
@@ -77,7 +86,7 @@ public class Links extends JavaPlugin {
         try {
             config = YamlConfiguration.loadConfiguration(cfile);
         } catch(Exception ex) {
-            Logger.ERROR.out("Failed to reload the config file! Report this to the developer @ " + Utils.SUPPORT_URL);
+            Logger.ERROR.out("Failed to reload the config file! Report this to the developer @ " + Utils.getSupport);
         }
     }
 }

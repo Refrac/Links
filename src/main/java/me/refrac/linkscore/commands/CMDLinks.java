@@ -8,6 +8,8 @@ import org.bukkit.entity.Player;
 
 import me.refrac.linkscore.utils.*;
 
+import java.util.List;
+
 public class CMDLinks implements CommandExecutor {
 
     @Override
@@ -18,11 +20,8 @@ public class CMDLinks implements CommandExecutor {
         }
         Player player = (Player) sender;
         if (args.length == 0) {
-            for (String links : Links.plugin.getConfig().getStringList("Links")) {
-                links = Utils.setupPlaceholderAPI(player, links);
-                links = links.replace("{player}", player.getName());
-                links = links.replace("{displayname}", player.getDisplayName());
-                player.sendMessage(Utils.color(links));
+            for (String m : Links.plugin.getConfig().getStringList("Links")) {
+                player.sendMessage(Utils.color(m.replace("{player}", player.getName()).replace("{displayname}", player.getDisplayName()).replace("{arrowright}", "\u00BB").replace("{circle}", "\u2B24")));
             }
         } else if (args.length == 1) {
             if (!player.hasPermission ( "links.help" )) {
@@ -38,9 +37,9 @@ public class CMDLinks implements CommandExecutor {
             }
             player.sendMessage(Utils.color("&7&l&m-------------------------------------------"));
             player.sendMessage("");
-            player.sendMessage(ChatColor.YELLOW + "Created by: " + ChatColor.AQUA + Utils.DEVELOPER_NAME);
-            player.sendMessage(ChatColor.YELLOW + "Support: " + ChatColor.AQUA + Utils.SUPPORT_URL);
-            player.sendMessage(ChatColor.YELLOW + "Version: " + ChatColor.AQUA + Utils.VERSION);
+            player.sendMessage(ChatColor.YELLOW + "Created by: " + ChatColor.AQUA + Utils.getAuthor);
+            player.sendMessage(ChatColor.YELLOW + "Version: " + ChatColor.AQUA + Utils.getVersion);
+            player.sendMessage(ChatColor.YELLOW + "Support: " + ChatColor.AQUA + Utils.getSupport);
             player.sendMessage("");
             player.sendMessage(Utils.color("&7&l&m-------------------------------------------"));
             return true;
@@ -50,7 +49,7 @@ public class CMDLinks implements CommandExecutor {
                 return false;
             }
             Links.plugin.reloadConfig();
-            player.sendMessage(Utils.color("&7Config files successfully reloaded."));
+            player.sendMessage(Utils.color(Utils.getPrefix + "&eConfig files successfully reloaded."));
             return true;
         }
         return false;
@@ -59,13 +58,13 @@ public class CMDLinks implements CommandExecutor {
     public void sendHelpMessage(Player player) {
         player.sendMessage(Utils.color("&7&m-------------------------------------------"));
         player.sendMessage("");
-        player.sendMessage(Utils.color("&b&lLinksCore &bv" + Utils.VERSION));
-        player.sendMessage(Utils.color("&eby &b" + Utils.DEVELOPER_NAME));
+        player.sendMessage(Utils.color("&b&lLinksCore &bv" + Utils.getVersion));
+        player.sendMessage(Utils.color("&eby &b" + Utils.getAuthor));
         player.sendMessage("");
-        player.sendMessage(ChatColor.AQUA + "/links " + ChatColor.YELLOW + "Shows all of the server links");
-        player.sendMessage(ChatColor.AQUA + "/links help " + ChatColor.YELLOW + "This help page");
-        player.sendMessage(ChatColor.AQUA + "/links about " + ChatColor.YELLOW + "Shows plugin info");
-        player.sendMessage(ChatColor.AQUA + "/links reload " + ChatColor.YELLOW + "Reloads the config files");
+        player.sendMessage(Utils.color("&b/links &7| &eShows all of the server links"));
+        player.sendMessage(Utils.color("&b/links help &7| &eThis help page"));
+        player.sendMessage(Utils.color("&b/links about &7| &eShows plugin info"));
+        player.sendMessage(Utils.color("&b/links reload &7| &eReloads the config files"));
         player.sendMessage("");
         player.sendMessage(Utils.color("&7&m-------------------------------------------"));
     }

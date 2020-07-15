@@ -10,6 +10,8 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 
+import java.util.List;
+
 public class JoinQuitEvent implements Listener {
 
     @EventHandler
@@ -19,11 +21,8 @@ public class JoinQuitEvent implements Listener {
 
             chatEvent.setJoinMessage(null);
 
-            for (String message : Links.plugin.getConfig().getStringList("Messages.join_motd")) {
-                message = Utils.setupPlaceholderAPI(player, message);
-                message = message.replace("{player}", player.getName());
-                message = message.replace("{displayname}", player.getDisplayName());
-                player.sendMessage(Utils.color(message));
+            for (String m : Links.plugin.getConfig().getStringList("Messages.join_motd")) {
+                player.sendMessage(Utils.colorFormat(player, m.replace("{player}", player.getName()).replace("{displayname}", player.getDisplayName()).replace("{arrowright}", "\u00BB").replace("{circle}", "\u2B24")));
             }
 
             if (!player.hasPlayedBefore()) {
@@ -43,7 +42,7 @@ public class JoinQuitEvent implements Listener {
                 chatEvent.getPlayer().sendMessage(ChatColor.GREEN + "LinksCore Information");
                 chatEvent.getPlayer().sendMessage("");
                 chatEvent.getPlayer().sendMessage(ChatColor.WHITE + "Plugin Name: " + ChatColor.GREEN + Links.plugin.getDescription().getName());
-                chatEvent.getPlayer().sendMessage(ChatColor.WHITE + "Plugin Version: " + ChatColor.GREEN + Utils.VERSION);
+                chatEvent.getPlayer().sendMessage(ChatColor.WHITE + "Plugin Version: " + ChatColor.GREEN + Utils.getVersion);
                 chatEvent.getPlayer().sendMessage(ChatColor.WHITE + "Plugin Author: " + ChatColor.GREEN + Links.plugin.getDescription().getAuthors());
                 chatEvent.getPlayer().sendMessage("");
             }
