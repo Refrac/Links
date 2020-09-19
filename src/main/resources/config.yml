@@ -1,15 +1,8 @@
-# LinksCore Version: 1.9
+# Links v2
 # Support Discord: https://discord.io/RefracDev
 # Placeholders
 # {player} - Get the players name
 # {displayname} - Get the players nickname
-# {arrowright} - Unicode arrow
-# {circle} - Unicode circle/bullet
-
-# This is a debug option for the developers to use to help fix an issue easier
-Debug:
-  # Do you want it enabled or not?
-  enabled: true
 
 # Messages
 Messages:
@@ -17,16 +10,16 @@ Messages:
   join_motd:
     - "&7&m----------------------------------------------------"
     - ""
-    - "     &eWelcome &d{player}&7, &eto &cSERVER&e!"
+    - "     &eWelcome &d{player}&7, &eto &dSERVERNAME&e!"
     - ""
-    - " &e{circle} Website: &dhttps://yourserver.net"
-    - " &e{circle} Discord: &dhttps://discord.gg/yourserver"
-    - " &e{circle} Store: &dhttps://store.yourserver.net"
-    - " &e{circle} Twitter: &dhttps://twitter.com/yourserver"
+    - " &eWebsite: &dhttps://yourserver.net"
+    - " &eDiscord: &dhttps://discord.gg/yourserver"
+    - " &eStore: &dhttps://store.yourserver.net"
+    - " &eTwitter: &dhttps://twitter.com/yourserver"
     - ""
     - "&7&m----------------------------------------------------"
   # What should the messages be?
-  first_join_message: "&eWelcome &d{player}, &eto &dSERVER&e!"
+  first_join_message: "&eWelcome &d{player}, &eto &dSERVERNAME&e!"
   join_message: "&d{player} &ehas joined."
   silent_join_message: "&eWelcome back, &d{player}&e."
   quit_message: "&c{player} &ehas left."
@@ -38,9 +31,56 @@ Messages:
 Links:
   - "&7&m----------------------------------------------------"
   - ""
-  - "&e{circle} Website: &dhttps://yourserver.net"
-  - "&e{circle} Discord: &dhttps://discord.gg/yourserver"
-  - "&e{circle} Store: &dhttps://store.yourserver.net"
-  - "&e{circle} Twitter: &dhttps://twitter.com/yourserver"
+  - "&eWebsite: &dhttps://yourserver.net"
+  - "&eDiscord: &dhttps://discord.gg/yourservercode"
+  - "&eTeamspeak: &dts.yourserver.net"
+  - "&eStore: &dhttps://store.yourserver.net"
+  - "&eTwitter: &dhttps://twitter.com/yourserver"
   - ""
   - "&7&m----------------------------------------------------"
+
+GUI:
+  Enabled: true
+  Title: "&d&lLinks"
+  Rows: 4 # 1 = 9, 2 = 18, 3 = 27, 4 = 36 5 = 54
+  WebsiteLink: "&eWebsite: &dhttps://yourserver.net"
+  DiscordLink: "&eDiscord: &dhttps://discord.gg/yourservercode"
+  TeamspeakLink: "&eTeamspeak: &dts.yourserver.net"
+  StoreLink: "&eStore: &dhttps://store.yourserver.net"
+  TwitterLink: "&eTwitter: &dhttps://twitter.com/yourserver"
+WebsiteItem:
+  MATERIAL: BOOK
+  NAME: "&eWebsite"
+  SLOT: 11
+  LORE:
+  - "&7L-Click to view our Website."
+DiscordItem:
+  MATERIAL: BOOK
+  NAME: "&eDiscord"
+  SLOT: 12
+  LORE:
+  - "&7L-Click to view our Discord."
+TeamspeakItem:
+  MATERIAL: BOOK
+  NAME: "&eTeamspeak"
+  SLOT: 13
+  LORE:
+  - "&7L-Click to view our Teamspeak."
+StoreItem:
+  MATERIAL: BOOK
+  NAME: "&eStore"
+  SLOT: 14
+  LORE:
+  - "&7L-Click to view our Store."
+TwitterItem:
+  MATERIAL: BOOK
+  NAME: "&eTwitter"
+  SLOT: 15
+  LORE:
+  - "&7L-Click to view our Twitter."
+AllLinksItem:
+  MATERIAL: DIAMOND_BLOCK
+  NAME: "&eLinks"
+  SLOT: 31
+  LORE:
+  - "&7L-Click to view all of our links."

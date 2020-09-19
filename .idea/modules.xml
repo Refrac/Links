@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/LinksCore.iml" filepath="$PROJECT_DIR$/LinksCore.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Linksv2.iml" filepath="$PROJECT_DIR$/Linksv2.iml" />
     </modules>
   </component>
 </project>

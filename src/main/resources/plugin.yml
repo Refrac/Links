@@ -1,8 +1,8 @@
-name: LinksCore
-version: '1.9'
-main: me.refrac.linkscore.Links
+name: Links
+version: '2.0'
+main: me.refrac.links.Links
 author: Refrac
-description: LinksCore utility plugin
+description: Links plugin
 website: https://discord.io/RefracDev
 
 commands:
@@ -10,9 +10,9 @@ commands:
     description: Links command
 
 permissions:
-  sophos.silent.join:
+  links.silent.join:
     description: Allows the user to join silently
     default: false
-  sophos.silent.quit:
+  links.silent.quit:
     decription: Allows the user to quit silently
     default: false

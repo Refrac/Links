@@ -4,15 +4,15 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>me.refrac.linkscore</groupId>
-    <artifactId>LinksCore</artifactId>
-    <version>1.9</version>
+    <groupId>me.refrac.links</groupId>
+    <artifactId>Links</artifactId>
+    <version>2.0</version>
     <packaging>jar</packaging>
 
-    <name>LinksCore</name>
+    <name>Linksv2</name>
 
     <url>https://discord.io/RefracDev</url>
-    <description>LinksCore utility plugin</description>
+    <description>Links plugin</description>
     <properties>
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
