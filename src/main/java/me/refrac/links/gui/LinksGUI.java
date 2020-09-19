@@ -32,18 +32,31 @@ public class LinksGUI implements Listener {
 
     public Inventory getInventory() {
         Inventory inv = Bukkit.createInventory(null, getSize(), getTitle());
-
-        inv.setItem(Links.getLinksConfig().getInt("WebsiteItem.SLOT"), LinksItems.websiteItem());
-        inv.setItem(Links.getLinksConfig().getInt("DiscordItem.SLOT"), LinksItems.discordItem());
-        inv.setItem(Links.getLinksConfig().getInt("TeamspeakItem.SLOT"), LinksItems.teamspeakItem());
-        inv.setItem(Links.getLinksConfig().getInt("StoreItem.SLOT"), LinksItems.storeItem());
-        inv.setItem(Links.getLinksConfig().getInt("TwitterItem.SLOT"), LinksItems.twitterItem());
-        if (getSize() >= 36) {
+        /*IF SIZE IS GREATER THAN 54 SET TO DEFAULT*/
+        if (getSize() <= 54) {
+            inv.setItem(Links.getLinksConfig().getInt("WebsiteItem.SLOT"), LinksItems.websiteItem());
+            inv.setItem(Links.getLinksConfig().getInt("DiscordItem.SLOT"), LinksItems.discordItem());
+            inv.setItem(Links.getLinksConfig().getInt("TeamspeakItem.SLOT"), LinksItems.teamspeakItem());
+            inv.setItem(Links.getLinksConfig().getInt("StoreItem.SLOT"), LinksItems.storeItem());
+            inv.setItem(Links.getLinksConfig().getInt("TwitterItem.SLOT"), LinksItems.twitterItem());
             inv.setItem(Links.getLinksConfig().getInt("AllLinksItem.SLOT"), LinksItems.allLinksItem());
-        }
-        for (int i = 0; i < getSize(); i++) {
-            if (inv.getItem(i) == null) {
-                inv.setItem(i, Glass());
+            for (int i = 0; i < getSize(); i++) {
+                if (inv.getItem(i) == null) {
+                    inv.setItem(i, Glass());
+                }
+            }
+        } else {
+            /*DEFAULT VALUES*/
+            inv.setItem(11, LinksItems.websiteItem());
+            inv.setItem(12, LinksItems.discordItem());
+            inv.setItem(14, LinksItems.teamspeakItem());
+            inv.setItem(15, LinksItems.storeItem());
+            inv.setItem(16, LinksItems.twitterItem());
+            inv.setItem(31, LinksItems.allLinksItem());
+            for (int i = 0; i < getSize(); i++) {
+                if (inv.getItem(i) == null) {
+                    inv.setItem(i, Glass());
+                }
             }
         }
         return inv;
@@ -65,7 +78,7 @@ public class LinksGUI implements Listener {
         if (event.getCurrentItem() == null) return;
         if (event.getCurrentItem().getType() == Material.AIR) return;
         event.setCancelled(true);
-        // CLICK EVENTS
+        /*CLICK EVENTS*/
         if (event.getCurrentItem().isSimilar(LinksItems.websiteItem())) {
             player.sendMessage(Links.getLinksConfig().getString("GUI.WebsiteLink").replace("&", "§"));
             player.getOpenInventory().close();

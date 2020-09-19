@@ -41,6 +41,7 @@ Links:
 
 GUI:
   Enabled: true
+  DisabledMessage: "&cThe &f/links gui &cis currently disabled..."
   Title: "&d&lLinks"
   Rows: 4 # 1 = 9, 2 = 18, 3 = 27, 4 = 36 5 = 54
   WebsiteLink: "&eWebsite: &dhttps://yourserver.net"

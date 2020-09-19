@@ -22,8 +22,12 @@ public class CMDLinks implements CommandExecutor {
             }
         } else if (args.length == 1) {
             if (args[0].equalsIgnoreCase("gui")) {
-                player.openInventory(Links.plugin.getLinksGUI().getInventory());
-                return true;
+                if (Links.getLinksConfig().getBoolean("GUI.Enabled")) {
+                    player.openInventory(Links.plugin.getLinksGUI().getInventory());
+                    return true;
+                } else {
+                    player.sendMessage(Utils.color(Links.getLinksConfig().getString("GUI.DisabledMessage")));
+                }
             } else if (args[0].equalsIgnoreCase("help")) {
                 if (!player.hasPermission("links.help")) {
                     player.sendMessage(Utils.color(Links.getLinksConfig().getString("Messages.no_permission")));

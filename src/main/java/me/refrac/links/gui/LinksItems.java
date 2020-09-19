@@ -4,7 +4,6 @@ import me.refrac.links.Links;
 import me.refrac.links.utils.ItemBuilder;
 import me.refrac.links.utils.Utils;
 import org.bukkit.Material;
-import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.ArrayList;
