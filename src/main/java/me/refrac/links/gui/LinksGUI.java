@@ -23,23 +23,49 @@ public class LinksGUI implements Listener {
     }
 
     private String getTitle() {
-        return Utils.color(Links.getLinksConfig().getString("GUI.Title"));
+        if (Links.getLinksConfig().getString("GUI.Title").length() <= 32) {
+            return Utils.color(Links.getLinksConfig().getString("GUI.Title"));
+        } else return Utils.color("&d&lLinks");
     }
 
     private int getSize() {
-        if (Links.getLinksConfig().getInt("GUI.Rows") <= 5) {
+        if (Links.getLinksConfig().getInt("GUI.Rows") <= 6) {
             return 9*Links.getLinksConfig().getInt("GUI.Rows");
         } else return 54;
     }
 
     public Inventory getInventory() {
         Inventory inv = Bukkit.createInventory(null, getSize(), getTitle());
-        inv.setItem(Links.getLinksConfig().getInt("WebsiteItem.SLOT"), LinksItems.websiteItem());
-        inv.setItem(Links.getLinksConfig().getInt("DiscordItem.SLOT"), LinksItems.discordItem());
-        inv.setItem(Links.getLinksConfig().getInt("TeamspeakItem.SLOT"), LinksItems.teamspeakItem());
-        inv.setItem(Links.getLinksConfig().getInt("StoreItem.SLOT"), LinksItems.storeItem());
-        inv.setItem(Links.getLinksConfig().getInt("TwitterItem.SLOT"), LinksItems.twitterItem());
-        inv.setItem(Links.getLinksConfig().getInt("AllLinksItem.SLOT"), LinksItems.allLinksItem());
+        if (Links.getLinksConfig().getInt("WebsiteItem.SLOT") <= 53) {
+            inv.setItem(Links.getLinksConfig().getInt("WebsiteItem.SLOT"), LinksItems.websiteItem());
+        } else {
+            inv.setItem(11, LinksItems.websiteItem());
+        }
+        if (Links.getLinksConfig().getInt("DiscordItem.SLOT") <= 53) {
+            inv.setItem(Links.getLinksConfig().getInt("DiscordItem.SLOT"), LinksItems.discordItem());
+        } else {
+            inv.setItem(12, LinksItems.discordItem());
+        }
+        if (Links.getLinksConfig().getInt("TeamspeakItem.SLOT") <= 53) {
+            inv.setItem(Links.getLinksConfig().getInt("TeamspeakItem.SLOT"), LinksItems.teamspeakItem());
+        } else {
+            inv.setItem(13, LinksItems.teamspeakItem());
+        }
+        if (Links.getLinksConfig().getInt("StoreItem.SLOT") <= 53) {
+            inv.setItem(Links.getLinksConfig().getInt("StoreItem.SLOT"), LinksItems.storeItem());
+        } else {
+            inv.setItem(14, LinksItems.storeItem());
+        }
+        if (Links.getLinksConfig().getInt("TwitterItem.SLOT") <= 53) {
+            inv.setItem(Links.getLinksConfig().getInt("TwitterItem.SLOT"), LinksItems.twitterItem());
+        } else {
+            inv.setItem(15, LinksItems.twitterItem());
+        }
+        if (Links.getLinksConfig().getInt("AllLinksItem.SLOT") <= 53) {
+            inv.setItem(Links.getLinksConfig().getInt("AllLinksItem.SLOT"), LinksItems.allLinksItem());
+        } else {
+            inv.setItem(31, LinksItems.allLinksItem());
+        }
         for (int i = 0; i < getSize(); i++) {
             if (inv.getItem(i) == null) {
                 inv.setItem(i, Glass());

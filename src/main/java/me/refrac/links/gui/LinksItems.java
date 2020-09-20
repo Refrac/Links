@@ -16,7 +16,12 @@ public class LinksItems {
         for (String s : Links.getLinksConfig().getStringList("WebsiteItem.LORE")) {
             lore.add(Utils.color(s));
         }
-        return new ItemBuilder(Material.valueOf(Links.getLinksConfig().getString("WebsiteItem.MATERIAL")))
+        if (Material.getMaterial(Links.getLinksConfig().getString("WebsiteItem.MATERIAL")) != null) {
+            return new ItemBuilder(Material.valueOf(Links.getLinksConfig().getString("WebsiteItem.MATERIAL")))
+                    .setName(Utils.color(Links.getLinksConfig().getString("WebsiteItem.NAME")))
+                    .setLore(lore)
+                    .toItemStack();
+        } else return new ItemBuilder(Material.BOOK)
                 .setName(Utils.color(Links.getLinksConfig().getString("WebsiteItem.NAME")))
                 .setLore(lore)
                 .toItemStack();
@@ -27,7 +32,12 @@ public class LinksItems {
         for (String s : Links.getLinksConfig().getStringList("DiscordItem.LORE")) {
             lore.add(Utils.color(s));
         }
-        return new ItemBuilder(Material.valueOf(Links.getLinksConfig().getString("DiscordItem.MATERIAL")))
+        if (Material.getMaterial(Links.getLinksConfig().getString("DiscordItem.MATERIAL")) != null) {
+            return new ItemBuilder(Material.valueOf(Links.getLinksConfig().getString("DiscordItem.MATERIAL")))
+                    .setName(Utils.color(Links.getLinksConfig().getString("DiscordItem.NAME")))
+                    .setLore(lore)
+                    .toItemStack();
+        } else return new ItemBuilder(Material.BOOK)
                 .setName(Utils.color(Links.getLinksConfig().getString("DiscordItem.NAME")))
                 .setLore(lore)
                 .toItemStack();
@@ -38,7 +48,12 @@ public class LinksItems {
         for (String s : Links.getLinksConfig().getStringList("TeamspeakItem.LORE")) {
             lore.add(Utils.color(s));
         }
-        return new ItemBuilder(Material.valueOf(Links.getLinksConfig().getString("TeamspeakItem.MATERIAL")))
+        if (Material.getMaterial(Links.getLinksConfig().getString("TeamspeakItem.MATERIAL")) != null) {
+            return new ItemBuilder(Material.valueOf(Links.getLinksConfig().getString("TeamspeakItem.MATERIAL")))
+                    .setName(Utils.color(Links.getLinksConfig().getString("TeamspeakItem.NAME")))
+                    .setLore(lore)
+                    .toItemStack();
+        } else return new ItemBuilder(Material.BOOK)
                 .setName(Utils.color(Links.getLinksConfig().getString("TeamspeakItem.NAME")))
                 .setLore(lore)
                 .toItemStack();
@@ -49,7 +64,12 @@ public class LinksItems {
         for (String s : Links.getLinksConfig().getStringList("StoreItem.LORE")) {
             lore.add(Utils.color(s));
         }
-        return new ItemBuilder(Material.valueOf(Links.getLinksConfig().getString("StoreItem.MATERIAL")))
+        if (Material.getMaterial(Links.getLinksConfig().getString("StoreItem.MATERIAL")) != null) {
+            return new ItemBuilder(Material.valueOf(Links.getLinksConfig().getString("StoreItem.MATERIAL")))
+                    .setName(Utils.color(Links.getLinksConfig().getString("StoreItem.NAME")))
+                    .setLore(lore)
+                    .toItemStack();
+        } else return new ItemBuilder(Material.BOOK)
                 .setName(Utils.color(Links.getLinksConfig().getString("StoreItem.NAME")))
                 .setLore(lore)
                 .toItemStack();
@@ -60,7 +80,12 @@ public class LinksItems {
         for (String s : Links.getLinksConfig().getStringList("TwitterItem.LORE")) {
             lore.add(Utils.color(s));
         }
-        return new ItemBuilder(Material.valueOf(Links.getLinksConfig().getString("TwitterItem.MATERIAL")))
+        if (Material.getMaterial(Links.getLinksConfig().getString("TwitterItem.MATERIAL")) != null) {
+            return new ItemBuilder(Material.valueOf(Links.getLinksConfig().getString("TwitterItem.MATERIAL")))
+                    .setName(Utils.color(Links.getLinksConfig().getString("TwitterItem.NAME")))
+                    .setLore(lore)
+                    .toItemStack();
+        } else return new ItemBuilder(Material.BOOK)
                 .setName(Utils.color(Links.getLinksConfig().getString("TwitterItem.NAME")))
                 .setLore(lore)
                 .toItemStack();
@@ -71,7 +96,12 @@ public class LinksItems {
         for (String s : Links.getLinksConfig().getStringList("AllLinksItem.LORE")) {
             lore.add(Utils.color(s));
         }
-        return new ItemBuilder(Material.valueOf(Links.getLinksConfig().getString("AllLinksItem.MATERIAL")))
+        if (Material.getMaterial(Links.getLinksConfig().getString("AllLinksItem.MATERIAL")) != null) {
+            return new ItemBuilder(Material.valueOf(Links.getLinksConfig().getString("AllLinksItem.MATERIAL")))
+                    .setName(Utils.color(Links.getLinksConfig().getString("AllLinksItem.NAME")))
+                    .setLore(lore)
+                    .toItemStack();
+        } else return new ItemBuilder(Material.DIAMOND_BLOCK)
                 .setName(Utils.color(Links.getLinksConfig().getString("AllLinksItem.NAME")))
                 .setLore(lore)
                 .toItemStack();
