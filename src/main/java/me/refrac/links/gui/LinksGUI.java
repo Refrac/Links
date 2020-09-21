@@ -29,28 +29,32 @@ public class LinksGUI implements Listener {
     }
 
     private int getSize() {
-        if (Links.getLinksConfig().getInt("GUI.Rows") <= 6) {
+        if (Links.getLinksConfig().getInt("GUI.Rows") <= 6 && Links.getLinksConfig().getInt("GUI.Rows") != 0) {
             return 9*Links.getLinksConfig().getInt("GUI.Rows");
         } else return 54;
     }
 
     public Inventory getInventory() {
         Inventory inv = Bukkit.createInventory(null, getSize(), getTitle());
+        // WebsiteItem
         if (Links.getLinksConfig().getInt("WebsiteItem.SLOT") <= 53) {
             inv.setItem(Links.getLinksConfig().getInt("WebsiteItem.SLOT"), LinksItems.websiteItem());
         } else {
             inv.setItem(11, LinksItems.websiteItem());
         }
+        // DiscordItem
         if (Links.getLinksConfig().getInt("DiscordItem.SLOT") <= 53) {
             inv.setItem(Links.getLinksConfig().getInt("DiscordItem.SLOT"), LinksItems.discordItem());
         } else {
             inv.setItem(12, LinksItems.discordItem());
         }
+        // TeamspeakItem
         if (Links.getLinksConfig().getInt("TeamspeakItem.SLOT") <= 53) {
             inv.setItem(Links.getLinksConfig().getInt("TeamspeakItem.SLOT"), LinksItems.teamspeakItem());
         } else {
             inv.setItem(13, LinksItems.teamspeakItem());
         }
+        // StoreItem
         if (Links.getLinksConfig().getInt("StoreItem.SLOT") <= 53) {
             inv.setItem(Links.getLinksConfig().getInt("StoreItem.SLOT"), LinksItems.storeItem());
         } else {
@@ -61,6 +65,7 @@ public class LinksGUI implements Listener {
         } else {
             inv.setItem(15, LinksItems.twitterItem());
         }
+        // AllLinksItem
         if (Links.getLinksConfig().getInt("AllLinksItem.SLOT") <= 53) {
             inv.setItem(Links.getLinksConfig().getInt("AllLinksItem.SLOT"), LinksItems.allLinksItem());
         } else {

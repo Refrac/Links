@@ -1,8 +1,8 @@
 name: Links
-version: '2.0'
+version: '2.0.1'
 main: me.refrac.links.Links
 author: Refrac
-description: Links plugin
+description: Links plugin by Refrac
 website: https://discord.io/RefracDev
 
 commands:

@@ -1,6 +1,7 @@
 package me.refrac.links.events;
 
 import me.refrac.links.Links;
+import me.refrac.links.utils.UpdateChecker;
 import me.refrac.links.utils.Utils;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
@@ -13,6 +14,17 @@ public class JoinQuitEvent implements Listener {
 
     @EventHandler
     public void onJoin(PlayerJoinEvent chatEvent) {
+        if (Links.getLinksConfig().getBoolean("Update.Enabled")) {
+            if (chatEvent.getPlayer().hasPermission("links.update")) {
+                new UpdateChecker(Links.plugin, 70888).getLatestVersion( version -> {
+                    if (!Links.plugin.getDescription().getVersion().equalsIgnoreCase(version)) {
+                        chatEvent.getPlayer().sendMessage(Utils.color("&7&m-----------------------------------------"));
+                        chatEvent.getPlayer().sendMessage(Utils.color("&bA new version of Links&7(Links " + version + ") &bhas been released!"));
+                        chatEvent.getPlayer().sendMessage(Utils.color("&bPlease update here: &e" + Utils.getPluginURL));
+                        chatEvent.getPlayer().sendMessage(Utils.color("&7&m-----------------------------------------"));
+                }});
+            }
+        }
         if (Links.getLinksConfig().getBoolean("Messages.enabled")) {
             Player player = chatEvent.getPlayer();
 

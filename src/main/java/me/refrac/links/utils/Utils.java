@@ -17,8 +17,10 @@ public class Utils {
 
     public static String getSupport = "https://discord.io/RefracDev";
 
-    public static String getVersion = "2.0";
+    public static String getVersion = "2.0.1";
 
     public static String getPrefix = "&8[&d&lLinks&8] ";
+
+    public static String getPluginURL = "https://www.spigotmc.org/resources/70888/";
 
 }

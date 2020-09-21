@@ -4,6 +4,10 @@
 # {player} - Get the players name
 # {displayname} - Get the players nickname
 
+Update:
+  Enabled: true
+# Enables if there is a message on-join when the plugin is outdated.
+
 # Messages
 Messages:
   enabled: true
@@ -14,15 +18,16 @@ Messages:
     - ""
     - " &eWebsite: &dhttps://yourserver.net"
     - " &eDiscord: &dhttps://discord.gg/yourserver"
+    - " &eTeamspeak: &dts.yourserver.net"
     - " &eStore: &dhttps://store.yourserver.net"
     - " &eTwitter: &dhttps://twitter.com/yourserver"
     - ""
     - "&7&m----------------------------------------------------"
   # What should the messages be?
   first_join_message: "&eWelcome &d{player}, &eto &dSERVERNAME&e!"
-  join_message: "&d{player} &ehas joined."
+  join_message: "&d{player} &ejoined."
   silent_join_message: "&eWelcome back, &d{player}&e."
-  quit_message: "&c{player} &ehas left."
+  quit_message: "&c{player} &eleft."
   silent_quit_message: "&eGoodbye, &d{player}&e."
   no_permission: "&cSorry you don't have permission!"
 

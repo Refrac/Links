@@ -24,7 +24,6 @@ public class CMDLinks implements CommandExecutor {
             if (args[0].equalsIgnoreCase("gui")) {
                 if (Links.getLinksConfig().getBoolean("GUI.Enabled")) {
                     player.openInventory(Links.plugin.getLinksGUI().getInventory());
-                    return true;
                 } else {
                     player.sendMessage(Utils.color(Links.getLinksConfig().getString("GUI.DisabledMessage")));
                 }
@@ -34,7 +33,6 @@ public class CMDLinks implements CommandExecutor {
                     return false;
                 }
                 this.sendHelpMessage(player);
-                return true;
             } else if (args[0].equalsIgnoreCase("about")) {
                 if (!player.hasPermission("links.about")) {
                     player.sendMessage(Utils.color(Links.getLinksConfig().getString("Messages.no_permission")));
@@ -42,12 +40,11 @@ public class CMDLinks implements CommandExecutor {
                 }
                 player.sendMessage(Utils.color("&7&m---------------&7[ &d&lLINKS ABOUT &7]&7&m---------------"));
                 player.sendMessage("");
-                player.sendMessage(ChatColor.LIGHT_PURPLE + "Created by: " + ChatColor.AQUA + Utils.getAuthor);
-                player.sendMessage(ChatColor.LIGHT_PURPLE + "Version: " + ChatColor.AQUA + Utils.getVersion);
-                player.sendMessage(ChatColor.LIGHT_PURPLE + "Support: " + ChatColor.AQUA + Utils.getSupport);
+                player.sendMessage(Utils.color("&dCreated by: &b" + Utils.getAuthor));
+                player.sendMessage(Utils.color("&dVersion: &b" + Utils.getVersion));
+                player.sendMessage(Utils.color("&dSupport: &b" + Utils.getSupport));
                 player.sendMessage("");
                 player.sendMessage(Utils.color("&7&m---------------&7[ &d&lLINKS ABOUT &7]&7&m---------------"));
-                return true;
             } else if (args[0].equalsIgnoreCase("reload")) {
                 if (!player.hasPermission("links.reload")) {
                     player.sendMessage(Utils.color(Links.getLinksConfig().getString("Messages.no_permission")));
@@ -55,7 +52,21 @@ public class CMDLinks implements CommandExecutor {
                 }
                 Links.plugin.reloadConfig();
                 player.sendMessage(Utils.color(Utils.getPrefix + "&eConfig files successfully reloaded."));
-                return true;
+            } else if (args[0].equalsIgnoreCase("update")) {
+                if (!player.hasPermission("links.update")) {
+                    player.sendMessage(Utils.color(Links.getLinksConfig().getString("Messages.no_permission")));
+                    return false;
+                }
+                player.sendMessage(ChatColor.RED + "Checking for updates...");
+                new UpdateChecker(Links.plugin, 70888).getLatestVersion(version -> {
+                    if (!Links.plugin.getDescription().getVersion().equalsIgnoreCase(version)) {
+                        player.sendMessage(Utils.color("&7&m-----------------------------------------"));
+                        player.sendMessage(Utils.color("&bA new version of Links&7(Links " + version + ") &bhas been released!"));
+                        player.sendMessage(Utils.color("&bPlease update here: " + Utils.getPluginURL));
+                        player.sendMessage(Utils.color("&7&m-----------------------------------------"));
+                    } else
+                        player.sendMessage(ChatColor.GREEN + "Links is up to date!");
+                });
             }
             return false;
         }
@@ -70,6 +81,7 @@ public class CMDLinks implements CommandExecutor {
         player.sendMessage(Utils.color("&d/links help &7| &eThis help page"));
         player.sendMessage(Utils.color("&d/links about &7| &eShows plugin info"));
         player.sendMessage(Utils.color("&d/links reload &7| &eReloads the config files"));
+        player.sendMessage(Utils.color("&d/links update &7| &eChecks for an update on SpigotMC"));
         player.sendMessage("");
         player.sendMessage(Utils.color("&7&m---------------&7[ &d&lLINKS HELP &7]&7&m---------------"));
     }
