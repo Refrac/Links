@@ -12,6 +12,12 @@ import org.bukkit.event.player.PlayerQuitEvent;
 
 public class JoinQuitEvent implements Listener {
 
+    int playerJoin;
+
+    public JoinQuitEvent() {
+        this.playerJoin = 0;
+    }
+
     @EventHandler
     public void onJoin(PlayerJoinEvent chatEvent) {
         if (Links.getLinksConfig().getBoolean("Update.Enabled")) {
@@ -35,7 +41,8 @@ public class JoinQuitEvent implements Listener {
             }
 
             if (!player.hasPlayedBefore()) {
-                Bukkit.broadcastMessage(Utils.color(Links.getLinksConfig().getString("Messages.first_join_message").replace("{player}", player.getName()).replace("{displayname}", player.getDisplayName())));
+                ++this.playerJoin;
+                Bukkit.broadcastMessage(Utils.color(Links.getLinksConfig().getString("Messages.first_join_message").replace("{player}", player.getName()).replace("{displayname}", player.getDisplayName()).replace("{joinnumber}", String.valueOf(this.playerJoin))));
             } else {
                 if (player.hasPermission("links.silent.join")) {
                     player.sendMessage(Utils.color(Links.getLinksConfig().getString("Messages.silent_join_message").replace("{player}", player.getName()).replace("{displayname}", player.getDisplayName())));

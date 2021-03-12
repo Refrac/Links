@@ -17,17 +17,15 @@ public class CMDLinks implements CommandExecutor {
         }
         Player player = (Player) sender;
         if (args.length == 0) {
-            for (String m : Links.getLinksConfig().getStringList("Links")) {
-                player.sendMessage(Utils.color(m));
+            if (Links.getLinksConfig().getBoolean("GUI.Enabled")) {
+                player.openInventory(Links.plugin.getLinksGUI().getInventory());
+            } else {
+                for (String m : Links.getLinksConfig().getStringList("Links")) {
+                    player.sendMessage(Utils.color(m));
+                }
             }
         } else if (args.length == 1) {
-            if (args[0].equalsIgnoreCase("gui")) {
-                if (Links.getLinksConfig().getBoolean("GUI.Enabled")) {
-                    player.openInventory(Links.plugin.getLinksGUI().getInventory());
-                } else {
-                    player.sendMessage(Utils.color(Links.getLinksConfig().getString("GUI.DisabledMessage")));
-                }
-            } else if (args[0].equalsIgnoreCase("help")) {
+            if (args[0].equalsIgnoreCase("help")) {
                 if (!player.hasPermission("links.help")) {
                     player.sendMessage(Utils.color(Links.getLinksConfig().getString("Messages.no_permission")));
                     return false;

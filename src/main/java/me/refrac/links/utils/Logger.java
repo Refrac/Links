@@ -7,7 +7,7 @@ package me.refrac.links.utils;
 
 import org.bukkit.Bukkit;
 
-// Created by Refrac/Zachstyles 5/10/20
+// Created by Refrac 5/10/20
 public enum Logger {
 
     NONE('r'), SUCCESS('a'), ERROR('c'), WARNING('e'), INFO('b');

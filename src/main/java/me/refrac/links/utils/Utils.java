@@ -15,9 +15,9 @@ public class Utils {
 
     public static String getAuthor = "Refrac";
 
-    public static String getSupport = "https://discord.io/RefracDev";
+    public static String getSupport = "https://discord.gg/GmVQyhQhZn";
 
-    public static String getVersion = "2.0.1";
+    public static String getVersion = "2.0.2";
 
     public static String getPrefix = "&8[&d&lLinks&8] ";
 

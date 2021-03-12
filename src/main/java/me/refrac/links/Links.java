@@ -34,8 +34,8 @@ public class Links extends JavaPlugin {
         Logger.NONE.out(ChatColor.LIGHT_PURPLE + " _       ___   _    _   _  __   ____   ");
         Logger.NONE.out(ChatColor.LIGHT_PURPLE + "| |     |_ _| | |  | | | |/ /  / ___|  ");
         Logger.NONE.out(ChatColor.LIGHT_PURPLE + "| |      | |  |      | | ' /    ___    ");
-        Logger.NONE.out(ChatColor.LIGHT_PURPLE + "| |___   | |  | |  | | | .      ___) | " + ChatColor.YELLOW + "By " + Utils.getAuthor );
-        Logger.NONE.out(ChatColor.LIGHT_PURPLE + "|_____| |___| |_|  |_| |_| |_| |____/  " + ChatColor.YELLOW + "v" + Utils.getVersion );
+        Logger.NONE.out(ChatColor.LIGHT_PURPLE + "| |___   | |  | |  | | | .      ___) | " + ChatColor.YELLOW + "By " + Utils.getAuthor);
+        Logger.NONE.out(ChatColor.LIGHT_PURPLE + "|_____| |___| |_|  |_| |_| |_| |____/  " + ChatColor.YELLOW + "v" + Utils.getVersion);
         Logger.NONE.out("");
 
         Logger.INFO.out("Loading config files");

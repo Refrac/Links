@@ -1,5 +1,5 @@
 # Links v2
-# Support Discord: https://discord.io/RefracDev
+# Support Discord: https://discord.gg/GmVQyhQhZn
 # Placeholders
 # {player} - Get the players name
 # {displayname} - Get the players nickname
@@ -24,7 +24,7 @@ Messages:
     - ""
     - "&7&m----------------------------------------------------"
   # What should the messages be?
-  first_join_message: "&eWelcome &d{player}, &eto &dSERVERNAME&e!"
+  first_join_message: "&eWelcome &d{player}, &eto &dSERVERNAME&e! #{joinnumber}"
   join_message: "&d{player} &ejoined."
   silent_join_message: "&eWelcome back, &d{player}&e."
   quit_message: "&c{player} &eleft."
@@ -46,7 +46,6 @@ Links:
 
 GUI:
   Enabled: true
-  DisabledMessage: "&cThe &f/links gui &cis currently disabled..."
   Title: "&d&lLinks"
   Rows: 4 # 1 = 9, 2 = 18, 3 = 27, 4 = 36, 5 = 45, 6 = 54
   WebsiteLink: "&eWebsite: &dhttps://yourserver.net"
@@ -54,6 +53,7 @@ GUI:
   TeamspeakLink: "&eTeamspeak: &dts.yourserver.net"
   StoreLink: "&eStore: &dhttps://store.yourserver.net"
   TwitterLink: "&eTwitter: &dhttps://twitter.com/yourserver"
+
 WebsiteItem:
   MATERIAL: BOOK
   NAME: "&eWebsite"

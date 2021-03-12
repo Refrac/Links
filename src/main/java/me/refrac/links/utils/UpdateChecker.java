@@ -9,6 +9,7 @@ import java.net.URL;
 import java.util.Scanner;
 import java.util.function.Consumer;
 
+// Created by BGHDDevelopment
 public class UpdateChecker {
     private Links plugin;
     private int resourceId;

@@ -1,5 +1,5 @@
 name: Links
-version: '2.0.1'
+version: '2.0.2'
 main: me.refrac.links.Links
 author: Refrac
 description: Links plugin by Refrac
@@ -16,3 +16,15 @@ permissions:
   links.silent.quit:
     decription: Allows the user to quit silently
     default: false
+  links.help:
+    description: Shows the help page
+    default: op
+  links.about:
+    description: Show the about page
+    default: op
+  links.reload:
+    description: Reloads the config file
+    default: op
+  links.update:
+    description: Updater permission
+    default: op
