@@ -1,8 +1,9 @@
 # Links v2
 # Support Discord: https://discord.gg/GmVQyhQhZn
-# Placeholders
+# Placeholders (PlaceholderAPI is not supported)
 # {player} - Get the players name
 # {displayname} - Get the players nickname
+# {joinnumber} - Get the players unique join number(only works on first_join_message for now)
 
 Update:
   Enabled: true
