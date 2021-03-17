@@ -8,4 +8,4 @@ If you have any suggestions feel free to let me know in the [Issues](https://git
 If you are not a developer, you can download Links for free on [SpigotMC](https://www.spigotmc.org/resources/70888/)!
 
 ## License
-License information can be found in the [LICENSE](https://github.com/Refrac/Links/LICENSE) file.
+License information can be found in the [LICENSE](LICENSE) file.
