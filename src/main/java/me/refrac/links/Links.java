@@ -53,6 +53,16 @@ public class Links extends JavaPlugin {
 
         Logger.SUCCESS.out("Links successfully enabled. (" + (System.currentTimeMillis() - startTiming) + "ms)");
         Logger.INFO.out("Report any issues or errors directly to the developers @ " + Utils.getSupport);
+
+        new UpdateChecker(Links.plugin, 90283).getLatestVersion(version -> {
+            if (!Links.plugin.getDescription().getVersion().equalsIgnoreCase(version)) {
+                Logger.NONE.out(Utils.color("&7&m-----------------------------------------"));
+                Logger.NONE.out(Utils.color("&bA new version of Links&7(Links " + version + ") &bhas been released!"));
+                Logger.NONE.out(Utils.color("&bPlease update here: " + Utils.getPluginURL));
+                Logger.NONE.out(Utils.color("&7&m-----------------------------------------"));
+            } else
+                Logger.NONE.out(ChatColor.GREEN + "Links is up to date!");
+        });
     }
 
     @Override

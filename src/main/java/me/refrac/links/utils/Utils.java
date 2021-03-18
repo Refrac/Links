@@ -17,10 +17,10 @@ public class Utils {
 
     public static String getSupport = "https://discord.gg/GmVQyhQhZn";
 
-    public static String getVersion = "2.0.2";
+    public static String getVersion = "2.1";
 
     public static String getPrefix = "&8[&d&lLinks&8] ";
 
-    public static String getPluginURL = "https://www.spigotmc.org/resources/70888/";
+    public static String getPluginURL = "https://www.spigotmc.org/resources/90283/";
 
 }

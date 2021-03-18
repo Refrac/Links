@@ -56,7 +56,7 @@ public class CMDLinks implements CommandExecutor {
                     return false;
                 }
                 player.sendMessage(ChatColor.RED + "Checking for updates...");
-                new UpdateChecker(Links.plugin, 70888).getLatestVersion(version -> {
+                new UpdateChecker(Links.plugin, 90283).getLatestVersion(version -> {
                     if (!Links.plugin.getDescription().getVersion().equalsIgnoreCase(version)) {
                         player.sendMessage(Utils.color("&7&m-----------------------------------------"));
                         player.sendMessage(Utils.color("&bA new version of Links&7(Links " + version + ") &bhas been released!"));

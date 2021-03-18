@@ -22,7 +22,7 @@ public class JoinQuitEvent implements Listener {
     public void onJoin(PlayerJoinEvent chatEvent) {
         if (Links.getLinksConfig().getBoolean("Update.Enabled")) {
             if (chatEvent.getPlayer().hasPermission("links.update")) {
-                new UpdateChecker(Links.plugin, 70888).getLatestVersion( version -> {
+                new UpdateChecker(Links.plugin, 90283).getLatestVersion( version -> {
                     if (!Links.plugin.getDescription().getVersion().equalsIgnoreCase(version)) {
                         chatEvent.getPlayer().sendMessage(Utils.color("&7&m-----------------------------------------"));
                         chatEvent.getPlayer().sendMessage(Utils.color("&bA new version of Links&7(Links " + version + ") &bhas been released!"));
