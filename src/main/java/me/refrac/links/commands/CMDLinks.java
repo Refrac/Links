@@ -36,13 +36,7 @@ public class CMDLinks implements CommandExecutor {
                     player.sendMessage(Utils.color(Links.getLinksConfig().getString("Messages.no_permission")));
                     return false;
                 }
-                player.sendMessage(Utils.color("&7&m---------------&7[ &d&lLINKS ABOUT &7]&7&m---------------"));
-                player.sendMessage("");
-                player.sendMessage(Utils.color("&dCreated by: &b" + Utils.getAuthor));
-                player.sendMessage(Utils.color("&dVersion: &b" + Utils.getVersion));
-                player.sendMessage(Utils.color("&dSupport: &b" + Utils.getSupport));
-                player.sendMessage("");
-                player.sendMessage(Utils.color("&7&m---------------&7[ &d&lLINKS ABOUT &7]&7&m---------------"));
+                this.sendAboutMessage(player);
             } else if (args[0].equalsIgnoreCase("reload")) {
                 if (!player.hasPermission("links.reload")) {
                     player.sendMessage(Utils.color(Links.getLinksConfig().getString("Messages.no_permission")));
@@ -75,12 +69,21 @@ public class CMDLinks implements CommandExecutor {
         player.sendMessage(Utils.color("&7&m---------------&7[ &d&lLINKS HELP &7]&7&m---------------"));
         player.sendMessage("");
         player.sendMessage(Utils.color("&d/links &7| &eShows all of the server links"));
-        player.sendMessage(Utils.color("&d/links gui &7| &eOpens the Links GUI"));
         player.sendMessage(Utils.color("&d/links help &7| &eThis help page"));
         player.sendMessage(Utils.color("&d/links about &7| &eShows plugin info"));
         player.sendMessage(Utils.color("&d/links reload &7| &eReloads the config files"));
         player.sendMessage(Utils.color("&d/links update &7| &eChecks for an update on SpigotMC"));
         player.sendMessage("");
         player.sendMessage(Utils.color("&7&m---------------&7[ &d&lLINKS HELP &7]&7&m---------------"));
+    }
+
+    public void sendAboutMessage(Player player) {
+        player.sendMessage(Utils.color("&7&m---------------&7[ &d&lLINKS ABOUT &7]&7&m---------------"));
+        player.sendMessage("");
+        player.sendMessage(Utils.color("&dCreated by: &b" + Utils.getAuthor));
+        player.sendMessage(Utils.color("&dVersion: &b" + Utils.getVersion));
+        player.sendMessage(Utils.color("&dSupport: &b" + Utils.getSupport));
+        player.sendMessage("");
+        player.sendMessage(Utils.color("&7&m---------------&7[ &d&lLINKS ABOUT &7]&7&m---------------"));
     }
 }

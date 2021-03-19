@@ -2,7 +2,7 @@
 # Support Discord: https://discord.gg/GmVQyhQhZn
 # Placeholders (PlaceholderAPI is not supported)
 # {player} - Get the players name
-# {displayname} - Get the players nickname
+# {displayname} - Get the players displayname
 # {joinnumber} - Get the players unique join number(only works on first_join_message for now)
 
 Update:
@@ -56,36 +56,42 @@ GUI:
   TwitterLink: "&eTwitter: &dhttps://twitter.com/yourserver"
 
 WebsiteItem:
+  Enabled: true
   MATERIAL: BOOK
   NAME: "&eWebsite"
   SLOT: 11
   LORE:
   - "&7L-Click to view our Website."
 DiscordItem:
+  Enabled: true
   MATERIAL: BOOK
   NAME: "&eDiscord"
   SLOT: 12
   LORE:
   - "&7L-Click to view our Discord."
 TeamspeakItem:
+  Enabled: true
   MATERIAL: BOOK
   NAME: "&eTeamspeak"
   SLOT: 13
   LORE:
   - "&7L-Click to view our Teamspeak."
 StoreItem:
+  Enabled: true
   MATERIAL: BOOK
   NAME: "&eStore"
   SLOT: 14
   LORE:
   - "&7L-Click to view our Store."
 TwitterItem:
+  Enabled: true
   MATERIAL: BOOK
   NAME: "&eTwitter"
   SLOT: 15
   LORE:
   - "&7L-Click to view our Twitter."
 AllLinksItem:
+  Enabled: true
   MATERIAL: DIAMOND_BLOCK
   NAME: "&eLinks"
   SLOT: 31

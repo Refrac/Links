@@ -54,6 +54,7 @@ public class Links extends JavaPlugin {
         Logger.SUCCESS.out("Links successfully enabled. (" + (System.currentTimeMillis() - startTiming) + "ms)");
         Logger.INFO.out("Report any issues or errors directly to the developers @ " + Utils.getSupport);
 
+        Logger.INFO.out("Checking for updates...");
         new UpdateChecker(Links.plugin, 90283).getLatestVersion(version -> {
             if (!Links.plugin.getDescription().getVersion().equalsIgnoreCase(version)) {
                 Logger.NONE.out(Utils.color("&7&m-----------------------------------------"));
