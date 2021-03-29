@@ -87,13 +87,16 @@ public class LinksGUI implements Listener {
             }
         }
         // AllLinksItem
-        if (Links.getLinksConfig().getInt("AllLinksItem.SLOT") <= 53 && !(Links.getLinksConfig().getInt("AllLinksItem.SLOT") >= getSize())) {
-            inv.setItem(Links.getLinksConfig().getInt("AllLinksItem.SLOT"), LinksItems.allLinksItem());
-        } else if (getSize() >= 9) {
-            inv.setItem(8, LinksItems.allLinksItem());
-        } else if (getSize() >= 36) {
-            inv.setItem(31, LinksItems.allLinksItem());
+        if (Links.getLinksConfig().getBoolean("AllLinksItem.Enabled")) {
+            if (Links.getLinksConfig().getInt("AllLinksItem.SLOT") <= 53 && !(Links.getLinksConfig().getInt("AllLinksItem.SLOT") >= getSize())) {
+                inv.setItem(Links.getLinksConfig().getInt("AllLinksItem.SLOT"), LinksItems.allLinksItem());
+            } else if (getSize() >= 9) {
+                inv.setItem(8, LinksItems.allLinksItem());
+            } else if (getSize() >= 36) {
+                inv.setItem(31, LinksItems.allLinksItem());
+            }
         }
+
         for (int i = 0; i < getSize(); i++) {
             if (inv.getItem(i) == null) {
                 inv.setItem(i, Glass());

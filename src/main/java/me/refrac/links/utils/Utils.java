@@ -15,7 +15,7 @@ public class Utils {
 
     public static String getAuthor = "Refrac";
 
-    public static String getSupport = "https://discord.gg/GmVQyhQhZn";
+    public static String getSupport = "https://discord.gg/mUKjWZByzQ";
 
     public static String getVersion = "2.2";
 
