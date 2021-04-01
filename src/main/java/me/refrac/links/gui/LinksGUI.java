@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) Refrac
+ * If you have any questions please email refracplaysmc@gmail.com or reach me on Discord
+ */
 package me.refrac.links.gui;
 
 import me.refrac.links.Links;
@@ -13,6 +17,9 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
+/**
+ * @author Zachary Baldwin / Refrac
+ */
 public class LinksGUI implements Listener {
 
     private Links main;
@@ -23,7 +30,8 @@ public class LinksGUI implements Listener {
     }
 
     private String getTitle() {
-        if (Links.getLinksConfig().getString("GUI.Title").length() <= 32) {
+        if (Links.getLinksConfig().getString("GUI.Title").length() <= 32 &&
+                !(Links.getLinksConfig().getString("GUI.Title").length() <= 0)) {
             return Utils.color(Links.getLinksConfig().getString("GUI.Title"));
         } else return Utils.color("&d&lLinks");
     }

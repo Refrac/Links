@@ -1,16 +1,21 @@
 # Links v2
-# Support Discord: https://discord.gg/GmVQyhQhZn
-# Placeholders (PlaceholderAPI is not supported)
+# Support Discord: https://discord.com/invite/mUKjWZByzQ
+# Placeholders (PlaceholderAPI is supported for all of the Join Messages)
 # {player} - Get the players name
 # {displayname} - Get the players displayname
-# {joinnumber} - Get the players unique join number(only works on first_join_message for now)
+# {joinnumber} - Get the players unique join number
 
 Update:
   Enabled: true
 # Enables if there is a message on-join when the plugin is outdated.
 
-# Messages
+SilentStart:
+  Enabled: true
+# This is used if you would prefer a silent startup for the plugin
+
+# Join Messages
 Messages:
+  # Enable or disable all join messages
   enabled: true
   join_motd:
     - "&7&m----------------------------------------------------"

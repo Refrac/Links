@@ -1,6 +1,10 @@
+/*
+ * Copyright (c) Refrac
+ * If you have any questions please email refracplaysmc@gmail.com or reach me on Discord
+ */
 package me.refrac.links;
 
-import me.refrac.links.events.JoinQuitEvent;
+import me.refrac.links.events.JoinEvent;
 import me.refrac.links.gui.LinksGUI;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -15,10 +19,13 @@ import me.refrac.links.utils.*;
 import java.io.File;
 import java.io.IOException;
 
+/**
+ * @author Zachary Baldwin / Refrac
+ */
 public class Links extends JavaPlugin {
 
     public static Links plugin;
-    private File cfile;
+    private static File cfile;
     private static FileConfiguration config;
 
     private LinksGUI linksGUI;
@@ -26,44 +33,65 @@ public class Links extends JavaPlugin {
     @Override
     public void onEnable() {
         // Plugin startup logic
-        plugin = this;
-        long startTiming = System.currentTimeMillis();
-        Logger.INFO.out("Enabling Links");
-
-        Logger.NONE.out("");
-        Logger.NONE.out(ChatColor.LIGHT_PURPLE + " _       ___   _    _   _  __   ____   ");
-        Logger.NONE.out(ChatColor.LIGHT_PURPLE + "| |     |_ _| | |  | | | |/ /  / ___|  ");
-        Logger.NONE.out(ChatColor.LIGHT_PURPLE + "| |      | |  |      | | ' /    ___    ");
-        Logger.NONE.out(ChatColor.LIGHT_PURPLE + "| |___   | |  | |  | | | .      ___) | " + ChatColor.YELLOW + "By " + Utils.getAuthor);
-        Logger.NONE.out(ChatColor.LIGHT_PURPLE + "|_____| |___| |_|  |_| |_| |_| |____/  " + ChatColor.YELLOW + "v" + Utils.getVersion);
-        Logger.NONE.out("");
-
-        Logger.INFO.out("Loading config files");
         this.createConfig();
-        Logger.SUCCESS.out("Successfully loaded the config files");
+        if (getLinksConfig().getBoolean("SilentStart.Enabled")) {
+            plugin = this;
+            long startTiming = System.currentTimeMillis();
 
-        Logger.INFO.out("Loading commands");
-        this.getCommand("links").setExecutor(new CMDLinks());
-        Logger.SUCCESS.out("Successfully loaded the commands");
+            this.getCommand("links").setExecutor(new CMDLinks());
 
-        Logger.INFO.out("Loading events");
-        Bukkit.getServer().getPluginManager().registerEvents(new JoinQuitEvent(), this);
-        this.linksGUI = new LinksGUI(this);
-        Logger.SUCCESS.out("Successfully loaded the events");
+            Bukkit.getServer().getPluginManager().registerEvents(new JoinEvent(), this);
+            this.linksGUI = new LinksGUI(this);
 
-        Logger.SUCCESS.out("Links successfully enabled. (" + (System.currentTimeMillis() - startTiming) + "ms)");
-        Logger.INFO.out("Report any issues or errors directly to the developers @ " + Utils.getSupport);
+            Logger.SUCCESS.out("Links successfully enabled. (" + (System.currentTimeMillis() - startTiming) + "ms)");
+            Logger.INFO.out("Report any errors directly to the developers @ " + Utils.getSupport);
 
-        Logger.INFO.out("Checking for updates...");
-        new UpdateChecker(Links.plugin, 90283).getLatestVersion(version -> {
-            if (!Links.plugin.getDescription().getVersion().equalsIgnoreCase(version)) {
-                Logger.NONE.out(Utils.color("&7&m-----------------------------------------"));
-                Logger.NONE.out(Utils.color("&bA new version of Links&7(Links " + version + ") &bhas been released!"));
-                Logger.NONE.out(Utils.color("&bPlease update here: " + Utils.getPluginURL));
-                Logger.NONE.out(Utils.color("&7&m-----------------------------------------"));
-            } else
-                Logger.NONE.out(ChatColor.GREEN + "Links is up to date!");
-        });
+            Logger.INFO.out("Checking for updates...");
+            new UpdateChecker(Links.plugin, 90283).getLatestVersion(version -> {
+                if (!Links.plugin.getDescription().getVersion().equalsIgnoreCase(version)) {
+                    Logger.NONE.out(Utils.color("&7&m-----------------------------------------"));
+                    Logger.NONE.out(Utils.color("&bA new version of Links&7(Links " + version + ") &bhas been released!"));
+                    Logger.NONE.out(Utils.color("&bPlease update here: " + Utils.getPluginURL));
+                    Logger.NONE.out(Utils.color("&7&m-----------------------------------------"));
+                } else
+                    Logger.NONE.out(ChatColor.GREEN + "Links is up to date!");
+            });
+        } else {
+            plugin = this;
+            long startTiming = System.currentTimeMillis();
+            Logger.INFO.out("Enabling Links");
+
+            Logger.NONE.out("");
+            Logger.NONE.out(ChatColor.LIGHT_PURPLE + " _       ___   _    _   _  __   ____   ");
+            Logger.NONE.out(ChatColor.LIGHT_PURPLE + "| |     |_ _| | |  | | | |/ /  / ___|  ");
+            Logger.NONE.out(ChatColor.LIGHT_PURPLE + "| |      | |  |      | | ' /    ___    ");
+            Logger.NONE.out(ChatColor.LIGHT_PURPLE + "| |___   | |  | |  | | | .      ___) | " + ChatColor.YELLOW + "By " + Utils.getAuthor);
+            Logger.NONE.out(ChatColor.LIGHT_PURPLE + "|_____| |___| |_|  |_| |_| |_| |____/  " + ChatColor.YELLOW + "v" + Utils.getVersion);
+            Logger.NONE.out("");
+
+            Logger.INFO.out("Loading commands");
+            this.getCommand("links").setExecutor(new CMDLinks());
+            Logger.SUCCESS.out("Successfully loaded the commands");
+
+            Logger.INFO.out("Loading events");
+            Bukkit.getServer().getPluginManager().registerEvents(new JoinEvent(), this);
+            this.linksGUI = new LinksGUI(this);
+            Logger.SUCCESS.out("Successfully loaded the events");
+
+            Logger.SUCCESS.out("Links successfully enabled. (" + (System.currentTimeMillis() - startTiming) + "ms)");
+            Logger.INFO.out("Report any errors directly to the developers @ " + Utils.getSupport);
+
+            Logger.INFO.out("Checking for updates...");
+            new UpdateChecker(Links.plugin, 90283).getLatestVersion(version -> {
+                if (!Links.plugin.getDescription().getVersion().equalsIgnoreCase(version)) {
+                    Logger.NONE.out(Utils.color("&7&m-----------------------------------------"));
+                    Logger.NONE.out(Utils.color("&bA new version of Links&7(Links " + version + ") &bhas been released!"));
+                    Logger.NONE.out(Utils.color("&bPlease update here: " + Utils.getPluginURL));
+                    Logger.NONE.out(Utils.color("&7&m-----------------------------------------"));
+                } else
+                    Logger.NONE.out(ChatColor.GREEN + "Links is up to date!");
+            });
+        }
     }
 
     @Override
@@ -72,7 +100,7 @@ public class Links extends JavaPlugin {
         plugin = null;
         Logger.INFO.out("Shutting down Links");
         Logger.SUCCESS.out("Links successfully disabled.");
-        Logger.INFO.out("Report any issues or errors directly to the developers @ " + Utils.getSupport);
+        Logger.INFO.out("Report any errors directly to the developers @ " + Utils.getSupport);
     }
 
     public static FileConfiguration getLinksConfig() {
@@ -92,6 +120,7 @@ public class Links extends JavaPlugin {
             config.load(cfile);
         } catch (IOException | InvalidConfigurationException e) {
             e.printStackTrace();
+            Logger.ERROR.out("Failed to create the config file! Report this to the developer @ " + Utils.getSupport);
         }
     }
 
@@ -103,6 +132,11 @@ public class Links extends JavaPlugin {
         } catch(Exception ex) {
             Logger.ERROR.out("Failed to reload the config file! Report this to the developer @ " + Utils.getSupport);
         }
+    }
+
+    public void saveLinksConfig() {
+        try { config.save(cfile); }
+        catch (Exception ex) { ex.printStackTrace(); }
     }
 
     public LinksGUI getLinksGUI() {

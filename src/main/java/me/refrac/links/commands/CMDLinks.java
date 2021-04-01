@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) Refrac
+ * If you have any questions please email refracplaysmc@gmail.com or reach me on Discord
+ */
 package me.refrac.links.commands;
 
 import me.refrac.links.Links;
@@ -7,6 +11,9 @@ import org.bukkit.entity.Player;
 
 import me.refrac.links.utils.*;
 
+/**
+ * @author Zachary Baldwin / Refrac
+ */
 public class CMDLinks implements CommandExecutor {
 
     @Override
@@ -43,7 +50,7 @@ public class CMDLinks implements CommandExecutor {
                     return false;
                 }
                 Links.plugin.reloadConfig();
-                player.sendMessage(Utils.color(Utils.getPrefix + "&eConfig files successfully reloaded."));
+                player.sendMessage(Utils.color(Utils.getPrefix + "&eConfig files successfully reloaded. Changes should be live in-game!"));
             } else if (args[0].equalsIgnoreCase("update")) {
                 if (!player.hasPermission("links.update")) {
                     player.sendMessage(Utils.color(Links.getLinksConfig().getString("Messages.no_permission")));
@@ -80,9 +87,9 @@ public class CMDLinks implements CommandExecutor {
     public void sendAboutMessage(Player player) {
         player.sendMessage(Utils.color("&7&m---------------&7[ &d&lLINKS ABOUT &7]&7&m---------------"));
         player.sendMessage("");
-        player.sendMessage(Utils.color("&dCreated by: &b" + Utils.getAuthor));
-        player.sendMessage(Utils.color("&dVersion: &b" + Utils.getVersion));
-        player.sendMessage(Utils.color("&dSupport: &b" + Utils.getSupport));
+        player.sendMessage(Utils.color("&dCreated by: &e" + Utils.getAuthor));
+        player.sendMessage(Utils.color("&dVersion: &e" + Utils.getVersion));
+        player.sendMessage(Utils.color("&dSupport: &e" + Utils.getSupport));
         player.sendMessage("");
         player.sendMessage(Utils.color("&7&m---------------&7[ &d&lLINKS ABOUT &7]&7&m---------------"));
     }

@@ -2,12 +2,13 @@
  * Copyright (c) Refrac
  * If you have any questions please email refracplaysmc@gmail.com or reach me on Discord
  */
-
 package me.refrac.links.utils;
 
 import org.bukkit.Bukkit;
 
-// Created by Refrac 5/10/20
+/**
+ * @author Zachary Baldwin / Refrac
+ */
 public enum Logger {
 
     NONE('r'), SUCCESS('a'), ERROR('c'), WARNING('e'), INFO('b');

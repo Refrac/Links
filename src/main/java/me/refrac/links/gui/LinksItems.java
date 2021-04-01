@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) Refrac
+ * If you have any questions please email refracplaysmc@gmail.com or reach me on Discord
+ */
 package me.refrac.links.gui;
 
 import me.refrac.links.Links;
@@ -9,6 +13,9 @@ import org.bukkit.inventory.ItemStack;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author Zachary Baldwin / Refrac
+ */
 public class LinksItems {
 
     public static ItemStack websiteItem() {

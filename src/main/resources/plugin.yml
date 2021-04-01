@@ -1,9 +1,11 @@
 name: Links
-version: '2.2'
+version: '2.3'
 main: me.refrac.links.Links
 author: Refrac
 description: Links plugin by Refrac
-website: https://discord.gg/GmVQyhQhZn
+website: https://discord.com/invite/mUKjWZByzQ
+
+softdepend: [PlaceholderAPI]
 
 commands:
   links:
