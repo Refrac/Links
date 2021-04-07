@@ -1,5 +1,5 @@
 name: Links
-version: '2.3'
+version: '2.4'
 main: me.refrac.links.Links
 author: Refrac
 description: Links plugin by Refrac
@@ -10,6 +10,8 @@ softdepend: [PlaceholderAPI]
 commands:
   links:
     description: Links command
+  linksreload:
+    description: Links Reload Command
 
 permissions:
   links.silent.join:

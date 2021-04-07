@@ -5,13 +5,16 @@
 # {displayname} - Get the players displayname
 # {joinnumber} - Get the players unique join number
 
+configVersion: 2.4
+# DO NOT CHANGE PLEASE.
+
 Update:
   Enabled: true
 # Enables if there is a message on-join when the plugin is outdated.
 
 SilentStart:
-  Enabled: true
-# This is used if you would prefer a silent startup for the plugin
+  Enabled: false
+# Removes startup messages.
 
 # Join Messages
 Messages:
@@ -20,7 +23,7 @@ Messages:
   join_motd:
     - "&7&m----------------------------------------------------"
     - ""
-    - "     &eWelcome &d{player}&7, &eto &dSERVERNAME&e!"
+    - "     &eWelcome &d{player}&7, &eto &d&lSERVERNAME&e!"
     - ""
     - " &eWebsite: &dhttps://yourserver.net"
     - " &eDiscord: &dhttps://discord.gg/yourserver"
@@ -30,17 +33,20 @@ Messages:
     - ""
     - "&7&m----------------------------------------------------"
   # What should the messages be?
-  first_join_message: "&eWelcome &d{player}, &eto &dSERVERNAME&e! #{joinnumber}"
+  first_join_message: "&eWelcome &d{player}, &eto &d&lSERVERNAME&e! #{joinnumber}"
   join_message: "&d{player} &ejoined."
   silent_join_message: "&eWelcome back, &d{player}&e."
   quit_message: "&c{player} &eleft."
   silent_quit_message: "&eGoodbye, &d{player}&e."
+  # Message for /links reload
+  reload_message: "&eConfig files successfully reloaded. Changes should be live in-game!"
   no_permission: "&cSorry you don't have permission!"
 
 # Links
 # Add more with this: - ""
 Links:
   - "&7&m----------------------------------------------------"
+  - "                 &d&lSERVERNAME &eLinks"
   - ""
   - "&eWebsite: &dhttps://yourserver.net"
   - "&eDiscord: &dhttps://discord.gg/yourservercode"

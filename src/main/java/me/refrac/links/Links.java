@@ -4,8 +4,9 @@
  */
 package me.refrac.links;
 
-import me.refrac.links.events.JoinEvent;
-import me.refrac.links.gui.LinksGUI;
+import me.refrac.links.commands.*;
+import me.refrac.links.events.*;
+import me.refrac.links.gui.*;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.InvalidConfigurationException;
@@ -13,7 +14,6 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import me.refrac.links.commands.*;
 import me.refrac.links.utils.*;
 
 import java.io.File;
@@ -33,18 +33,18 @@ public class Links extends JavaPlugin {
     @Override
     public void onEnable() {
         // Plugin startup logic
+        long startTiming = System.currentTimeMillis();
         this.createConfig();
         if (getLinksConfig().getBoolean("SilentStart.Enabled")) {
             plugin = this;
-            long startTiming = System.currentTimeMillis();
 
-            this.getCommand("links").setExecutor(new CMDLinks());
+            getCommand("links").setExecutor(new LinksCommand());
+            getCommand("linksreload").setExecutor(new LinksReloadCommand());
 
             Bukkit.getServer().getPluginManager().registerEvents(new JoinEvent(), this);
             this.linksGUI = new LinksGUI(this);
 
             Logger.SUCCESS.out("Links successfully enabled. (" + (System.currentTimeMillis() - startTiming) + "ms)");
-            Logger.INFO.out("Report any errors directly to the developers @ " + Utils.getSupport);
 
             Logger.INFO.out("Checking for updates...");
             new UpdateChecker(Links.plugin, 90283).getLatestVersion(version -> {
@@ -58,7 +58,6 @@ public class Links extends JavaPlugin {
             });
         } else {
             plugin = this;
-            long startTiming = System.currentTimeMillis();
             Logger.INFO.out("Enabling Links");
 
             Logger.NONE.out("");
@@ -70,7 +69,8 @@ public class Links extends JavaPlugin {
             Logger.NONE.out("");
 
             Logger.INFO.out("Loading commands");
-            this.getCommand("links").setExecutor(new CMDLinks());
+            getCommand("links").setExecutor(new LinksCommand());
+            getCommand("linksreload").setExecutor(new LinksReloadCommand());
             Logger.SUCCESS.out("Successfully loaded the commands");
 
             Logger.INFO.out("Loading events");
@@ -79,11 +79,10 @@ public class Links extends JavaPlugin {
             Logger.SUCCESS.out("Successfully loaded the events");
 
             Logger.SUCCESS.out("Links successfully enabled. (" + (System.currentTimeMillis() - startTiming) + "ms)");
-            Logger.INFO.out("Report any errors directly to the developers @ " + Utils.getSupport);
 
             Logger.INFO.out("Checking for updates...");
-            new UpdateChecker(Links.plugin, 90283).getLatestVersion(version -> {
-                if (!Links.plugin.getDescription().getVersion().equalsIgnoreCase(version)) {
+            new UpdateChecker(me.refrac.links.Links.plugin, 90283).getLatestVersion(version -> {
+                if (!me.refrac.links.Links.plugin.getDescription().getVersion().equalsIgnoreCase(version)) {
                     Logger.NONE.out(Utils.color("&7&m-----------------------------------------"));
                     Logger.NONE.out(Utils.color("&bA new version of Links&7(Links " + version + ") &bhas been released!"));
                     Logger.NONE.out(Utils.color("&bPlease update here: " + Utils.getPluginURL));
@@ -98,9 +97,6 @@ public class Links extends JavaPlugin {
     public void onDisable() {
         // Plugin shutdown logic
         plugin = null;
-        Logger.INFO.out("Shutting down Links");
-        Logger.SUCCESS.out("Links successfully disabled.");
-        Logger.INFO.out("Report any errors directly to the developers @ " + Utils.getSupport);
     }
 
     public static FileConfiguration getLinksConfig() {
@@ -129,14 +125,10 @@ public class Links extends JavaPlugin {
         cfile = new File(getDataFolder(), "config.yml");
         try {
             config = YamlConfiguration.loadConfiguration(cfile);
-        } catch(Exception ex) {
+        } catch(Exception e) {
+            e.printStackTrace();
             Logger.ERROR.out("Failed to reload the config file! Report this to the developer @ " + Utils.getSupport);
         }
-    }
-
-    public void saveLinksConfig() {
-        try { config.save(cfile); }
-        catch (Exception ex) { ex.printStackTrace(); }
     }
 
     public LinksGUI getLinksGUI() {

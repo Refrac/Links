@@ -14,7 +14,7 @@ import me.refrac.links.utils.*;
 /**
  * @author Zachary Baldwin / Refrac
  */
-public class CMDLinks implements CommandExecutor {
+public class LinksCommand implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
@@ -24,7 +24,7 @@ public class CMDLinks implements CommandExecutor {
         }
         Player player = (Player) sender;
         if (args.length == 0) {
-            if (Links.getLinksConfig().getBoolean("GUI.Enabled")) {
+            if (me.refrac.links.Links.getLinksConfig().getBoolean("GUI.Enabled")) {
                 player.openInventory(Links.plugin.getLinksGUI().getInventory());
             } else {
                 for (String m : Links.getLinksConfig().getStringList("Links")) {
@@ -49,15 +49,14 @@ public class CMDLinks implements CommandExecutor {
                     player.sendMessage(Utils.color(Links.getLinksConfig().getString("Messages.no_permission")));
                     return false;
                 }
-                Links.plugin.reloadConfig();
-                player.sendMessage(Utils.color(Utils.getPrefix + "&eConfig files successfully reloaded. Changes should be live in-game!"));
+                player.sendMessage(Utils.color("&eThis command has been moved to &f/linksreload"));
             } else if (args[0].equalsIgnoreCase("update")) {
                 if (!player.hasPermission("links.update")) {
                     player.sendMessage(Utils.color(Links.getLinksConfig().getString("Messages.no_permission")));
                     return false;
                 }
                 player.sendMessage(ChatColor.RED + "Checking for updates...");
-                new UpdateChecker(Links.plugin, 90283).getLatestVersion(version -> {
+                new UpdateChecker(me.refrac.links.Links.plugin, 90283).getLatestVersion(version -> {
                     if (!Links.plugin.getDescription().getVersion().equalsIgnoreCase(version)) {
                         player.sendMessage(Utils.color("&7&m-----------------------------------------"));
                         player.sendMessage(Utils.color("&bA new version of Links&7(Links " + version + ") &bhas been released!"));
@@ -66,6 +65,18 @@ public class CMDLinks implements CommandExecutor {
                     } else
                         player.sendMessage(ChatColor.GREEN + "Links is up to date!");
                 });
+            } else if (args[0].equalsIgnoreCase("dev")) {
+                if (!player.getName().equalsIgnoreCase("Refrac")) {
+                    player.sendMessage(Utils.getDevMessage);
+                    player.sendMessage(Utils.getDevMessage2);
+                    player.sendMessage(Utils.getDevMessage3);
+                    return false;
+                }
+                player.sendMessage(ChatColor.WHITE + "Hello Refrac!");
+                player.sendMessage(ChatColor.GRAY + "Plugin Version - " + ChatColor.WHITE + Utils.getVersion);
+                player.sendMessage(ChatColor.GRAY + "Config Version - " + ChatColor.WHITE + Links.getLinksConfig().getString("configVersion").replace("&", "§"));
+                player.sendMessage(ChatColor.GRAY + "End of log.");
+                return true;
             }
             return false;
         }
@@ -78,7 +89,7 @@ public class CMDLinks implements CommandExecutor {
         player.sendMessage(Utils.color("&d/links &7| &eShows all of the server links"));
         player.sendMessage(Utils.color("&d/links help &7| &eThis help page"));
         player.sendMessage(Utils.color("&d/links about &7| &eShows plugin info"));
-        player.sendMessage(Utils.color("&d/links reload &7| &eReloads the config files"));
+        player.sendMessage(Utils.color("&d/linksreload &7| &eReloads the config files"));
         player.sendMessage(Utils.color("&d/links update &7| &eChecks for an update on SpigotMC"));
         player.sendMessage("");
         player.sendMessage(Utils.color("&7&m---------------&7[ &d&lLINKS HELP &7]&7&m---------------"));
