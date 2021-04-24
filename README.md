@@ -1,7 +1,7 @@
 # Links
 Simple plugin to help point your playerbase to all of your platforms such as Discord, Twitter, and many more!
 
-If you have any suggestions feel free to let me know in the [Issues](https://github.com/Refrac/Links/issues) tab.
+If you have any suggestions feel free to let me know on [Discord](https://discord.gg/mUKjWZByzQ).
 
 ## Normal Installation
 
