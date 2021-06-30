@@ -1,11 +1,10 @@
 # Links v2
-# Support Discord: https://discord.com/invite/mUKjWZByzQ
+# Support Discord: https://discord.com/invite/jVnmm7QnQU
 # Placeholders (PlaceholderAPI is supported for all of the Join Messages)
 # {player} - Get the players name
 # {displayname} - Get the players displayname
-# {joinnumber} - Get the players unique join number
 
-configVersion: 2.4
+configVersion: 2.4.1
 # DO NOT CHANGE PLEASE.
 
 Update:
@@ -33,12 +32,12 @@ Messages:
     - ""
     - "&7&m----------------------------------------------------"
   # What should the messages be?
-  first_join_message: "&eWelcome &d{player}, &eto &d&lSERVERNAME&e! #{joinnumber}"
+  first_join_message: "&eWelcome &d{player}, &eto &d&lSERVERNAME&e!"
   join_message: "&d{player} &ejoined."
   silent_join_message: "&eWelcome back, &d{player}&e."
   quit_message: "&c{player} &eleft."
   silent_quit_message: "&eGoodbye, &d{player}&e."
-  # Message for /links reload
+  # Message for /linksreload
   reload_message: "&eConfig files successfully reloaded. Changes should be live in-game!"
   no_permission: "&cSorry you don't have permission!"
 

@@ -33,11 +33,11 @@ public class Links extends JavaPlugin {
     @Override
     public void onEnable() {
         // Plugin startup logic
+        plugin = this;
         long startTiming = System.currentTimeMillis();
         this.createConfig();
-        if (getLinksConfig().getBoolean("SilentStart.Enabled")) {
-            plugin = this;
 
+        if (getLinksConfig().getBoolean("SilentStart.Enabled")) {
             getCommand("links").setExecutor(new LinksCommand());
             getCommand("linksreload").setExecutor(new LinksReloadCommand());
 
@@ -57,9 +57,6 @@ public class Links extends JavaPlugin {
                     Logger.NONE.out(ChatColor.GREEN + "Links is up to date!");
             });
         } else {
-            plugin = this;
-            Logger.INFO.out("Enabling Links");
-
             Logger.NONE.out("");
             Logger.NONE.out(ChatColor.LIGHT_PURPLE + " _       ___   _    _   _  __   ____   ");
             Logger.NONE.out(ChatColor.LIGHT_PURPLE + "| |     |_ _| | |  | | | |/ /  / ___|  ");
@@ -81,8 +78,8 @@ public class Links extends JavaPlugin {
             Logger.SUCCESS.out("Links successfully enabled. (" + (System.currentTimeMillis() - startTiming) + "ms)");
 
             Logger.INFO.out("Checking for updates...");
-            new UpdateChecker(me.refrac.links.Links.plugin, 90283).getLatestVersion(version -> {
-                if (!me.refrac.links.Links.plugin.getDescription().getVersion().equalsIgnoreCase(version)) {
+            new UpdateChecker(Links.plugin, 90283).getLatestVersion(version -> {
+                if (!Links.plugin.getDescription().getVersion().equalsIgnoreCase(version)) {
                     Logger.NONE.out(Utils.color("&7&m-----------------------------------------"));
                     Logger.NONE.out(Utils.color("&bA new version of Links&7(Links " + version + ") &bhas been released!"));
                     Logger.NONE.out(Utils.color("&bPlease update here: " + Utils.getPluginURL));
@@ -103,7 +100,6 @@ public class Links extends JavaPlugin {
         return config;
     }
 
-    // Create Config File
     private void createConfig() {
         cfile = new File (getDataFolder(), "config.yml");
         if (!cfile.exists()) {
@@ -112,6 +108,7 @@ public class Links extends JavaPlugin {
         }
 
         config = new YamlConfiguration();
+
         try {
             config.load(cfile);
         } catch (IOException | InvalidConfigurationException e) {
@@ -120,7 +117,6 @@ public class Links extends JavaPlugin {
         }
     }
 
-    // Reload Config File
     public void reloadConfig() {
         cfile = new File(getDataFolder(), "config.yml");
         try {

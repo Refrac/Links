@@ -18,7 +18,7 @@ public enum Logger {
     Logger(char color) { this.color = color; }
 
     public void out(String message) {
-        message = Utils.color(String.format("%s > &%c%s", "&dLinks", this.color, message));
+        message = Utils.color(String.format("&%c%s", this.color, message));
         Bukkit.getConsoleSender().sendMessage(message);
     }
 }

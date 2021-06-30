@@ -5,6 +5,7 @@
 package me.refrac.links.commands;
 
 import me.refrac.links.Links;
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.*;
 import org.bukkit.entity.Player;
@@ -22,9 +23,11 @@ public class LinksCommand implements CommandExecutor {
             Logger.WARNING.out("You can only use this command as a player!");
             return false;
         }
+
         Player player = (Player) sender;
+
         if (args.length == 0) {
-            if (me.refrac.links.Links.getLinksConfig().getBoolean("GUI.Enabled")) {
+            if (Links.getLinksConfig().getBoolean("GUI.Enabled")) {
                 player.openInventory(Links.plugin.getLinksGUI().getInventory());
             } else {
                 for (String m : Links.getLinksConfig().getStringList("Links")) {
@@ -37,24 +40,21 @@ public class LinksCommand implements CommandExecutor {
                     player.sendMessage(Utils.color(Links.getLinksConfig().getString("Messages.no_permission")));
                     return false;
                 }
+
                 this.sendHelpMessage(player);
             } else if (args[0].equalsIgnoreCase("about")) {
                 if (!player.hasPermission("links.about")) {
                     player.sendMessage(Utils.color(Links.getLinksConfig().getString("Messages.no_permission")));
                     return false;
                 }
+
                 this.sendAboutMessage(player);
-            } else if (args[0].equalsIgnoreCase("reload")) {
-                if (!player.hasPermission("links.reload")) {
-                    player.sendMessage(Utils.color(Links.getLinksConfig().getString("Messages.no_permission")));
-                    return false;
-                }
-                player.sendMessage(Utils.color("&eThis command has been moved to &f/linksreload"));
             } else if (args[0].equalsIgnoreCase("update")) {
                 if (!player.hasPermission("links.update")) {
                     player.sendMessage(Utils.color(Links.getLinksConfig().getString("Messages.no_permission")));
                     return false;
                 }
+
                 player.sendMessage(ChatColor.RED + "Checking for updates...");
                 new UpdateChecker(me.refrac.links.Links.plugin, 90283).getLatestVersion(version -> {
                     if (!Links.plugin.getDescription().getVersion().equalsIgnoreCase(version)) {
@@ -73,8 +73,9 @@ public class LinksCommand implements CommandExecutor {
                     return false;
                 }
                 player.sendMessage(ChatColor.WHITE + "Hello Refrac!");
+                player.sendMessage(ChatColor.GRAY + "Server Version: " + ChatColor.WHITE + Bukkit.getVersion());
                 player.sendMessage(ChatColor.GRAY + "Plugin Version - " + ChatColor.WHITE + Utils.getVersion);
-                player.sendMessage(ChatColor.GRAY + "Config Version - " + ChatColor.WHITE + Links.getLinksConfig().getString("configVersion").replace("&", "§"));
+                player.sendMessage(ChatColor.GRAY + "Config Version - " + ChatColor.WHITE + Links.getLinksConfig().getString("configVersion"));
                 player.sendMessage(ChatColor.GRAY + "End of log.");
                 return true;
             }
